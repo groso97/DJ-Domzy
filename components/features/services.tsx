@@ -12,7 +12,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function Services() {
   return (
-    <section id="usluge" className="py-20 md:py-28 bg-muted/30">
+    <section id="usluge" className="py-20 md:py-28">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Moje usluge"

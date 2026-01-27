@@ -9,13 +9,44 @@ import { Contact } from "@/components/features/contact";
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Services />
-      <About />
-      <Gallery />
-      <Testimonials />
-      <CTA />
-      <Contact />
+      {/* Hero - Party background */}
+      <div className="bg-section-party relative">
+        <div className="party-glow-extra" />
+        <Hero />
+      </div>
+      
+      {/* Services - Solid background */}
+      <div className="bg-section-solid">
+        <Services />
+      </div>
+      
+      {/* About - Party background */}
+      <div className="bg-section-party relative">
+        <div className="party-glow-extra" />
+        <About />
+      </div>
+      
+      {/* Gallery - Solid background */}
+      <div className="bg-section-solid">
+        <Gallery />
+      </div>
+      
+      {/* Testimonials - Party background */}
+      <div className="bg-section-party relative">
+        <div className="party-glow-extra" />
+        <Testimonials />
+      </div>
+      
+      {/* CTA - Solid background */}
+      <div className="bg-section-solid">
+        <CTA />
+      </div>
+      
+      {/* Contact - Party background */}
+      <div className="bg-section-party relative">
+        <div className="party-glow-extra" />
+        <Contact />
+      </div>
     </>
   );
 }

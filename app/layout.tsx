@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Bebas_Neue, Space_Mono, Crimson_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -8,15 +8,24 @@ import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/config/constants";
 import "./globals.css";
 
-const outfit = Outfit({
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
+  weight: "400",
   variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
+  weight: ["400", "700"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const crimsonPro = Crimson_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -92,7 +101,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hr" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${inter.variable} min-h-screen`}>
+      <body className={`${bebasNeue.variable} ${spaceMono.variable} ${crimsonPro.variable} min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -10,7 +10,7 @@ export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   return (
-    <section id="galerija" className="py-20 md:py-28 bg-muted/30">
+    <section id="galerija" className="py-20 md:py-28">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Galerija"
@@ -48,7 +48,7 @@ export function Gallery() {
         {/* Video Section */}
         <div className="mt-12 text-center">
           <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-card border">
-            <div className="flex items-center gap-2 text-primary">
+            <div className="flex items-center gap-2 text-[#A855F7]">
               <Play className="h-6 w-6" />
               <span className="font-semibold">Video sadržaj</span>
             </div>

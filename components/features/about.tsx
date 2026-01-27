@@ -57,13 +57,13 @@ export function About() {
               className="mb-6"
             />
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Zdravo! Ja sam <span className="text-primary font-semibold">DJ Domzy</span>, 
+            <p className="text-muted-foreground text-lg leading-relaxed font-serif">
+              Zdravo! Ja sam <span className="text-[#A855F7] font-semibold">DJ Domzy</span>, 
               profesionalni DJ s više od desetljeća iskustva u glazbenoj industriji. 
               Moja misija je stvoriti nezaboravnu atmosferu na svakom događaju.
             </p>
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed font-serif">
               Bilo da se radi o intimnom vjenčanju, velikom korporativnom eventu ili 
               energičnoj klubskoj noći - prilagođavam svaki nastup publici i vašim željama. 
               Vjerujem da prava glazba u pravom trenutku može pretvoriti običan događaj 

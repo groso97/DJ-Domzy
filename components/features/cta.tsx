@@ -6,17 +6,6 @@ import { siteConfig } from "@/config/constants";
 export function CTA() {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 animated-gradient opacity-90" />
-      
-      {/* Pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center text-white">

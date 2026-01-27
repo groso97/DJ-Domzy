@@ -34,7 +34,7 @@ export function Testimonials() {
                 </div>
 
                 {/* Content */}
-                <blockquote className="text-muted-foreground leading-relaxed mb-6">
+                <blockquote className="text-muted-foreground leading-relaxed mb-6 font-serif">
                   &ldquo;{testimonial.content}&rdquo;
                 </blockquote>
 
@@ -61,7 +61,7 @@ export function Testimonials() {
             Provjerite sve recenzije na{" "}
             <a
               href="#"
-              className="text-primary font-medium hover:underline"
+              className="text-[#A855F7] font-medium hover:underline"
             >
               Google Reviews
             </a>

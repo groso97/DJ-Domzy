@@ -81,7 +81,7 @@ export function Contact() {
   };
 
   return (
-    <section id="kontakt" className="py-20 md:py-28 bg-muted/30">
+    <section id="kontakt" className="py-20 md:py-28">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Kontaktirajte me"
@@ -93,7 +93,7 @@ export function Contact() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold">Dogovorimo se!</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground font-serif">
                 Ispunite formu ili me kontaktirajte direktno. Odgovorit ću vam 
                 unutar 24 sata s detaljima i ponudom prilagođenom vašem događaju.
               </p>
@@ -143,8 +143,8 @@ export function Contact() {
               <div className="flex items-start gap-3">
                 <Calendar className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium text-primary">Dostupnost 2025</div>
-                  <p className="text-sm text-muted-foreground mt-1">
+                  <div className="font-medium text-[#A855F7]">Dostupnost 2025</div>
+                  <p className="text-sm text-muted-foreground mt-1 font-serif">
                     Termini se brzo popunjavaju! Rezervirajte svoj datum na vrijeme.
                   </p>
                 </div>
