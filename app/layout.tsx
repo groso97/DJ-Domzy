@@ -101,7 +101,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hr" suppressHydrationWarning>
-      <body className={`${bebasNeue.variable} ${spaceMono.variable} ${crimsonPro.variable} min-h-screen`}>
+      <body 
+        className={`${bebasNeue.variable} ${spaceMono.variable} ${crimsonPro.variable} min-h-screen`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
