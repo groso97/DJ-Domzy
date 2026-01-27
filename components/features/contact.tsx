@@ -143,7 +143,7 @@ export function Contact() {
               <div className="flex items-start gap-3">
                 <Calendar className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium text-[#A855F7]">Dostupnost 2025</div>
+                  <div className="font-medium text-[#A855F7]">Dostupnost 2026</div>
                   <p className="text-sm text-muted-foreground mt-1 font-serif">
                     Termini se brzo popunjavaju! Rezervirajte svoj datum na vrijeme.
                   </p>

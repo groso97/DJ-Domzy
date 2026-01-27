@@ -57,18 +57,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Usluge</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>DJ za vjenčanja</li>
-              <li>DJ za rođendane</li>
-              <li>Korporativni eventi</li>
-              <li>Klubovi i festivali</li>
-              <li>Privatne zabave</li>
-            </ul>
-          </div>
-
           {/* Contact */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Kontakt</h3>
@@ -97,20 +85,55 @@ export function Footer() {
               </li>
             </ul>
           </div>
+
+          
+          {/* Legal */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Pravno</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/privatnost"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Politika privatnosti
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/uvjeti"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Uvjeti korištenja
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/kolacici"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Kolačići
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <Separator className="my-8" />
+        <div className="my-8 h-px w-full bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.15)]"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <p>
+            Made with care by{" "}
+            <a
+              href="https://algo-solutions.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              ALGO Solutions
+            </a>
+          </p>
           <p>© {currentYear} DJ Domzy. Sva prava pridržana.</p>
-          <div className="flex gap-4">
-            <Link href="/privatnost" className="hover:text-primary transition-colors">
-              Politika privatnosti
-            </Link>
-            <Link href="/uvjeti" className="hover:text-primary transition-colors">
-              Uvjeti korištenja
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
