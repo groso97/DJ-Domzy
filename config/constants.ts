@@ -19,7 +19,6 @@ export const navLinks = [
   { href: "/", label: "Početna" },
   { href: "#usluge", label: "Usluge" },
   { href: "#o-meni", label: "O meni" },
-  { href: "#galerija", label: "Galerija" },
   { href: "#kontakt", label: "Kontakt" },
 ] as const;
 
@@ -72,13 +71,4 @@ export const testimonials = [
     content: "Profesionalan pristup i odlična komunikacija. Naši zaposlenici su oduševljeni!",
     rating: 5,
   },
-] as const;
-
-export const galleryImages = [
-  { id: 1, src: "/gallery/event-1.jpg", alt: "DJ Domzy na vjenčanju" },
-  { id: 2, src: "/gallery/event-2.jpg", alt: "Korporativni event" },
-  { id: 3, src: "/gallery/event-3.jpg", alt: "Klubska noć" },
-  { id: 4, src: "/gallery/event-4.jpg", alt: "Festival nastup" },
-  { id: 5, src: "/gallery/event-5.jpg", alt: "Rođendanska zabava" },
-  { id: 6, src: "/gallery/event-6.jpg", alt: "Privatna zabava" },
 ] as const;

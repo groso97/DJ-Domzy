@@ -9,7 +9,6 @@ Moderna web stranica za DJ Domzy, profesionalnog DJ-a za vjenčanja, rođendane,
 - **Styling:** Tailwind CSS 4 + PostCSS (@tailwindcss/postcss)
 - **UI komponente:** shadcn/ui (New York stil) + Radix UI
 - **Ikone:** lucide-react
-- **Tema:** next-themes
 - **Forme:** react-hook-form + zod + @hookform/resolvers
 - **Obavijesti:** sonner
 - **Email:** Resend
@@ -30,7 +29,7 @@ Moderna web stranica za DJ Domzy, profesionalnog DJ-a za vjenčanja, rođendane,
 ├── components/
 │   ├── features/           # Sekcije (hero, services, about, etc.)
 │   ├── layout/             # Header, Footer
-│   ├── shared/             # Logo, ThemeProvider, etc.
+│   ├── shared/             # Logo, etc.
 │   └── ui/                 # shadcn UI komponente
 ├── config/                 # Konstante i boje
 ├── hooks/                  # Custom React hookovi
@@ -98,7 +97,6 @@ Uredi `config/constants.ts` za:
 Dodaj slike u `public/` direktorij:
 - `og-image.jpg` - Open Graph slika (1200x630px)
 - `favicon.ico` - Favicon
-- `gallery/` - Slike za galeriju
 
 ## 🚢 Deployment
 

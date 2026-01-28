@@ -54,19 +54,6 @@ export function Testimonials() {
             </Card>
           ))}
         </div>
-
-        {/* Google Reviews CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground">
-            Provjerite sve recenzije na{" "}
-            <a
-              href="#"
-              className="text-[#A855F7] font-medium hover:underline"
-            >
-              Google Reviews
-            </a>
-          </p>
-        </div>
       </div>
     </section>
   );

@@ -120,7 +120,7 @@ export function Hero() {
               </Link>
             </Button>
             <Button asChild size="xl" variant="outline">
-              <Link href="#galerija" className="gap-3">
+              <Link href="#kontakt" className="gap-3">
                 <Play className="h-5 w-5" />
                 Pogledaj radove
               </Link>

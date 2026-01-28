@@ -546,3 +546,43 @@ h1, h2, h3, h4, h5, h6 {
 .bg-gradient-radial {
   background: radial-gradient(circle, var(--tw-gradient-stops));
 }
+
+/* Menu animations */
+@keyframes menuExpand {
+  0% {
+    clip-path: circle(30px at calc(100% - 40px) 40px);
+  }
+  100% {
+    clip-path: circle(150% at calc(100% - 40px) 40px);
+  }
+}
+
+@keyframes menuItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-item-fade-in {
+  opacity: 0;
+}
+
+.menu-link-wrapper {
+  display: block;
+}
+
+.menu-link-hover {
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  will-change: transform;
+}
+
+.menu-link-hover:hover {
+  transform: translateX(20px);
+}

@@ -31,13 +31,6 @@ export interface Testimonial {
   rating: number;
 }
 
-// Gallery Types
-export interface GalleryImage {
-  id: number;
-  src: string;
-  alt: string;
-}
-
 // Navigation Types
 export interface NavLink {
   href: string;
