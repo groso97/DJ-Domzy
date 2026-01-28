@@ -8,12 +8,12 @@ import { useCounter, useIntersectionObserver } from "@/hooks";
 
 export function Hero() {
   const statsRef = useRef<HTMLDivElement>(null);
-  const [ref500, isVisible500] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
-  const [ref10, isVisible10] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [ref500, isVisible20] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [ref10, isVisible5] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [ref100, isVisible100] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
-  const count500 = useCounter(isVisible500 ? 500 : 0, 0, { duration: 2000, startDelay: 0 });
-  const count10 = useCounter(isVisible10 ? 10 : 0, 0, { duration: 2000, startDelay: 0 });
+  const count20 = useCounter(isVisible20 ? 20 : 0, 0, { duration: 2000, startDelay: 0 });
+  const count5 = useCounter(isVisible5 ? 5 : 0, 0, { duration: 2000, startDelay: 0 });
   const count100 = useCounter(isVisible100 ? 100 : 0, 0, { duration: 2000, startDelay: 0 });
 
   return (
@@ -117,7 +117,7 @@ export function Hero() {
 
           {/* Subheading - Fade-in with delay */}
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-hero-subtitle">
-            Profesionalni DJ s iskustvom od preko 10 godina. Specijaliziram se za 
+            Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziram se za 
             vjenčanja, rođendane, korporativne evente i klubove. 
             <span className="text-[#A855F7] font-medium"> Vaša zabava je moja strast.</span>
           </p>
@@ -141,11 +141,11 @@ export function Hero() {
           {/* Stats - Counter animation */}
           <div ref={statsRef} className="grid grid-cols-3 gap-4 sm:gap-8 mt-16 pt-8 border-t border-border/50">
             <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.6s" }}>
-              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count500)}+</div>
+              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count20)}+</div>
               <div className="text-sm sm:text-base text-muted-foreground mt-1">Evenata</div>
             </div>
             <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.7s" }}>
-              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count10)}+</div>
+              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count5)}+</div>
               <div className="text-sm sm:text-base text-muted-foreground mt-1">Godina iskustva</div>
             </div>
             <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.8s" }}>
