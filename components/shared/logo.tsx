@@ -17,7 +17,7 @@ export function Logo({ className, showText = true }: LogoProps) {
       )}
       aria-label="DJ Domzy - Početna"
     >
-      <div className="relative">
+      <div className="relative animate-logo-pulse">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-secondary opacity-75 blur-lg group-hover:opacity-100 transition-opacity" />
         <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
           <Disc3 className="h-6 w-6 text-white animate-[spin_3s_linear_infinite] group-hover:animate-[spin_1s_linear_infinite]" />

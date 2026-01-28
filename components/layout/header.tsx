@@ -198,7 +198,7 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 z-50 w-full transition-all duration-300",
+          "fixed top-0 z-50 w-full transition-all duration-300 animate-navbar-slide-down",
           isScrolled
             ? "bg-background/80 backdrop-blur-lg border-b shadow-lg"
             : "bg-transparent"

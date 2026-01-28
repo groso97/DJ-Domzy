@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { CursorTrail } from "@/components/global/cursor-trail";
 import { siteConfig } from "@/config/constants";
 import "./globals.css";
 
@@ -106,6 +107,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <CursorTrail />
         <Toaster position="top-center" richColors />
         <Analytics />
       </body>
