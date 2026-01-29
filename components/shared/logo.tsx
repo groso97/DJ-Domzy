@@ -15,7 +15,7 @@ export function Logo({ className, showText = true }: LogoProps) {
         "group flex items-center gap-2 transition-all duration-300",
         className
       )}
-      aria-label="DJ Domzy - Početna"
+      aria-label="DJ Domza - Početna"
     >
       <div className="relative animate-logo-pulse">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-secondary opacity-75 blur-lg group-hover:opacity-100 transition-opacity" />
@@ -26,7 +26,7 @@ export function Logo({ className, showText = true }: LogoProps) {
       {showText && (
         <span className="text-2xl font-bold tracking-tight">
           <span className="gradient-text">DJ</span>
-          <span className="text-foreground"> Domzy</span>
+          <span className="text-foreground"> Domza</span>
         </span>
       )}
     </Link>

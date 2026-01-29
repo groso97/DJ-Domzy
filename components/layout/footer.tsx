@@ -15,13 +15,14 @@ export function Footer() {
 
   return (
     <footer className="bg-muted/50 border-t">
-      <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
+        <div className="max-w-6xl mx-auto">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 text-left">
           {/* Brand */}
           <div className="space-y-4">
             <Logo />
             <p className="text-sm text-muted-foreground max-w-xs">
-              Profesionalni DJ za nezaboravne događaje. Vjenčanja, rođendani,
+              DJ za nezaboravne događaje. Vjenčanja, rođendani,
               korporativni eventi i klubovi.
             </p>
             <div className="flex gap-3">
@@ -118,7 +119,9 @@ export function Footer() {
             </ul>
           </div>
         </div>
+        </div>
 
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="my-8 h-px w-full bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.15)]"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
@@ -133,7 +136,8 @@ export function Footer() {
               ALGO Solutions
             </a>
           </p>
-          <p>© {currentYear} DJ Domzy. Sva prava pridržana.</p>
+          <p>© {currentYear} DJ Domza. Sva prava pridržana.</p>
+        </div>
         </div>
       </div>
     </footer>

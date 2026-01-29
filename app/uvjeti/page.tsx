@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/constants";
 
 export const metadata: Metadata = {
   title: "Uvjeti korištenja",
-  description: "Uvjeti korištenja DJ Domzy web stranice",
+  description: "Uvjeti korištenja DJ Domza web stranice",
 };
 
 export default function TermsPage() {
@@ -24,7 +24,7 @@ export default function TermsPage() {
 
         <h2>2. Usluge</h2>
         <p>
-          DJ Domzy pruža profesionalne DJ usluge za razne događaje uključujući 
+          DJ Domza pruža profesionalne DJ usluge za razne događaje uključujući 
           vjenčanja, rođendane, korporativne evente i klubove.
         </p>
 
@@ -44,13 +44,13 @@ export default function TermsPage() {
         <h2>5. Intelektualno vlasništvo</h2>
         <p>
           Sav sadržaj na ovoj stranici, uključujući tekstove, slike, logotipe 
-          i grafičke elemente, vlasništvo je DJ Domzy i zaštićen je autorskim 
+          i grafičke elemente, vlasništvo je DJ Domza i zaštićen je autorskim 
           pravima.
         </p>
 
         <h2>6. Ograničenje odgovornosti</h2>
         <p>
-          DJ Domzy neće biti odgovoran za bilo kakvu štetu nastalu korištenjem 
+          DJ Domza neće biti odgovoran za bilo kakvu štetu nastalu korištenjem 
           ove web stranice ili nemogućnošću korištenja iste.
         </p>
 

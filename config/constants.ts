@@ -1,17 +1,17 @@
 export const siteConfig = {
-  name: "DJ Domzy",
-  description: "Profesionalni DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomzy.hr",
+  name: "DJ Domza",
+  description: "DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza.hr",
   ogImage: "/og-image.jpg",
   links: {
-    instagram: "https://instagram.com/djdomzy",
-    facebook: "https://facebook.com/djdomzy",
-    youtube: "https://youtube.com/@djdomzy",
-    soundcloud: "https://soundcloud.com/djdomzy",
+    instagram: "https://instagram.com/djdomza",
+    facebook: "https://facebook.com/djdomza",
+    youtube: "https://youtube.com/@djdomza",
+    soundcloud: "https://soundcloud.com/djdomza",
   },
   contact: {
-    email: "info@djdomzy.hr",
-    phone: "+385 99 123 4567",
+    email: "info@djdomza.hr",
+    phone: "+385 99 424 2425",
   },
 };
 
@@ -54,7 +54,7 @@ export const testimonials = [
     id: 1,
     name: "Marija i Ivan",
     role: "Vjenčanje, Zagreb",
-    content: "DJ Domzy je napravio naše vjenčanje nezaboravnim! Savršen odabir glazbe i nevjerojatna energija cijelu noć.",
+    content: "DJ Domza je napravio naše vjenčanje nezaboravnim! Savršen odabir glazbe i nevjerojatna energija cijelu noć.",
     rating: 5,
   },
   {

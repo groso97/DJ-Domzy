@@ -88,11 +88,11 @@ export function Contact() {
 
   const ContactCard = ({ icon: Icon, label, value, href }: { icon: typeof Phone; label: string; value: string; href: string | null }) => {
     const content = (
-      <div className="flex items-center gap-4 p-4 rounded-xl bg-card border hover:border-primary/50 transition-all duration-300 hover-lift group">
-        <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+      <div className="card-transparent flex items-center gap-4 p-4 rounded-2xl relative overflow-hidden group">
+        <div className="relative z-10 h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
           <Icon className="h-5 w-5 text-primary" />
         </div>
-        <div>
+        <div className="relative z-10 min-w-0">
           <div className="font-medium">{label}</div>
           <div className="text-muted-foreground">{value}</div>
         </div>
@@ -110,13 +110,16 @@ export function Contact() {
 
   return (
     <section id="kontakt" className="py-20 md:py-28">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
         <SectionHeading
+          badge="Kontakt"
           title="Kontaktirajte me"
           subtitle="Imate pitanja ili želite rezervirati termin? Javite mi se!"
+          centered={false}
         />
 
-        <div className="grid gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
+        <div className="grid gap-8 lg:grid-cols-2">
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -141,7 +144,7 @@ export function Contact() {
               <div className="flex items-start gap-3">
                 <Calendar className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium text-[#A855F7]">Dostupnost 2026</div>
+                  <div className="font-medium text-primary">Dostupnost 2026</div>
                   <p className="text-sm text-muted-foreground mt-1 font-serif">
                     Termini se brzo popunjavaju! Rezervirajte svoj datum na vrijeme.
                   </p>
@@ -151,8 +154,8 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="p-6 md:p-8 rounded-2xl bg-card border shadow-lg">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <div className="p-6 md:p-8 rounded-2xl card-transparent relative overflow-hidden">
+            <form onSubmit={handleSubmit(onSubmit)} className="relative z-10 space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="name">Ime i prezime *</Label>
@@ -188,7 +191,7 @@ export function Contact() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+385 99 123 4567"
+                    placeholder="+385 99 424 2425"
                     {...register("phone")}
                   />
                 </div>
@@ -255,6 +258,7 @@ export function Contact() {
               </p>
             </form>
           </div>
+        </div>
         </div>
       </div>
     </section>

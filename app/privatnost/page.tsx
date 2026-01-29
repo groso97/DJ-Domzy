@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/constants";
 
 export const metadata: Metadata = {
   title: "Politika privatnosti",
-  description: "Politika privatnosti DJ Domzy web stranice",
+  description: "Politika privatnosti DJ Domza web stranice",
 };
 
 export default function PrivacyPage() {
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
         <h2>1. Uvod</h2>
         <p>
-          Dobrodošli na web stranicu DJ Domzy ({siteConfig.url}). 
+          Dobrodošli na web stranicu DJ Domza ({siteConfig.url}). 
           Poštujemo vašu privatnost i obvezujemo se zaštititi vaše osobne podatke.
         </p>
 

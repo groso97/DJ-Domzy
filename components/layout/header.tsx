@@ -112,7 +112,7 @@ export function Header() {
       <div 
         className="absolute inset-0 bg-[#0A111F]"
         style={{
-          backgroundImage: "radial-gradient(ellipse at center, rgba(168, 85, 247, 0.3) 0%, rgba(168, 85, 247, 0.2) 30%, rgba(168, 85, 247, 0.1) 50%, transparent 80%)",
+          backgroundImage: "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.3) 0%, rgba(37, 99, 235, 0.2) 30%, rgba(37, 99, 235, 0.1) 50%, transparent 80%)",
           animation: "menuExpand 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards"
         }}
       />
@@ -139,7 +139,7 @@ export function Header() {
         {/* Navigation - Left positioned */}
         <div className="flex-1 flex items-center">
           <div className="px-6 md:px-8 lg:px-12 w-full max-w-4xl">
-            <div className="text-sm tracking-widest text-[#A855F7] mb-8 font-body uppercase">NAVIGACIJA</div>
+            <div className="text-sm tracking-widest text-primary mb-8 font-body uppercase">NAVIGACIJA</div>
             <nav className="space-y-6">
               {navLinks.map((link, index) => {
                 const isActive = activeSection === link.href || (link.href === "/" && activeSection === "/");
@@ -178,8 +178,8 @@ export function Header() {
                       className={cn(
                         "inline-block text-5xl md:text-6xl lg:text-7xl font-display cursor-pointer menu-link-hover",
                         isActive 
-                          ? "text-[#A855F7]" 
-                          : "text-white hover:text-[#A855F7]"
+                          ? "text-primary" 
+                          : "text-white hover:text-primary"
                       )}
                     >
                       {link.label}
@@ -204,7 +204,7 @@ export function Header() {
             : "bg-transparent"
         )}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
           <nav className="flex h-20 items-center justify-between">
             <Logo />
 

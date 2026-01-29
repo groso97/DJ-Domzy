@@ -1,6 +1,6 @@
-# DJ Domzy - Web Stranica
+# DJ Domza - Web Stranica
 
-Moderna web stranica za DJ Domzy, profesionalnog DJ-a za vjenčanja, rođendane, korporativne evente i klubove.
+Moderna web stranica za DJ Domza, profesionalnog DJ-a za vjenčanja, rođendane, korporativne evente i klubove.
 
 ## 🚀 Tehnologije
 
@@ -42,8 +42,8 @@ Moderna web stranica za DJ Domzy, profesionalnog DJ-a za vjenčanja, rođendane,
 
 1. Kloniraj repozitorij:
 ```bash
-git clone https://github.com/your-username/dj-domzy.git
-cd dj-domzy
+git clone https://github.com/your-username/dj-domza.git
+cd dj-domza
 ```
 
 2. Instaliraj dependencies:
@@ -117,4 +117,4 @@ npm start
 
 ## 📝 Licenca
 
-Sva prava pridržana © DJ Domzy
+Sva prava pridržana © DJ Domza

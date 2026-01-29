@@ -31,7 +31,7 @@ export function Hero() {
       {[...Array(4)].map((_, i) => (
         <div
           key={`wave-${i}`}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#A855F7]/15 pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#2563EB]/15 pointer-events-none"
           style={{
             width: `${200 + i * 120}px`,
             height: `${200 + i * 120}px`,
@@ -46,7 +46,7 @@ export function Hero() {
         {[1, 0.7, 0.9, 0.6, 0.8, 0.75, 0.65, 0.85].map((height, i) => (
           <div 
             key={`bar-${i}`}
-            className="w-1.5 bg-[#A855F7] rounded-t opacity-60 optimize-animation"
+            className="w-1.5 bg-primary rounded-t opacity-60 optimize-animation"
             style={{ 
               height: `${height * 50}px`,
               animation: `audio-visualizer ${1 + i * 0.15}s ease-in-out infinite`,
@@ -58,18 +58,18 @@ export function Hero() {
 
       {/* Vinyl Record */}
       <div className="absolute right-[6%] top-1/2 -translate-y-1/2 opacity-12 pointer-events-none z-0 hidden lg:block">
-        <div className="relative w-64 h-64 rounded-full bg-gradient-radial from-[#A855F7]/20 via-[#A855F7]/10 to-transparent border-4 border-[#A855F7]/20 animate-vinyl-spin optimize-animation">
+        <div className="relative w-64 h-64 rounded-full bg-gradient-radial from-[#2563EB]/20 via-[#2563EB]/10 to-transparent border-4 border-[#2563EB]/20 animate-vinyl-spin optimize-animation">
           {/* Groove lines */}
           <div className="absolute inset-0 rounded-full" style={{
             backgroundImage: `repeating-conic-gradient(
               from 0deg at 50% 50%,
               transparent 0deg 2deg,
-              rgba(168, 85, 247, 0.1) 2deg 4deg
+              rgba(37, 99, 235, 0.1) 2deg 4deg
             )`
           }} />
           {/* Center circle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#0A111F] border-2 border-[#A855F7]/30" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#A855F7]/20" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#0A111F] border-2 border-[#2563EB]/30" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#2563EB]/20" />
         </div>
       </div>
 
@@ -77,19 +77,19 @@ export function Hero() {
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Hexagon */}
         <div className="absolute top-[15%] right-[12%] w-20 h-20 opacity-10 optimize-animation">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-[#A855F7] animate-floating-geometric" style={{ animationDelay: "-1s" }}>
+          <svg viewBox="0 0 100 100" className="w-full h-full text-primary animate-floating-geometric" style={{ animationDelay: "-1s" }}>
             <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" />
           </svg>
         </div>
         {/* Triangle */}
         <div className="absolute bottom-[20%] left-[15%] w-16 h-16 opacity-10 optimize-animation">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-[#A855F7] animate-floating-geometric" style={{ animationDelay: "-2s" }}>
+          <svg viewBox="0 0 100 100" className="w-full h-full text-primary animate-floating-geometric" style={{ animationDelay: "-2s" }}>
             <polygon points="50,10 90,90 10,90" fill="currentColor" />
           </svg>
         </div>
         {/* Small hexagon */}
         <div className="absolute top-[60%] right-[20%] w-12 h-12 opacity-8 optimize-animation">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-[#A855F7] animate-floating-geometric" style={{ animationDelay: "-0.5s" }}>
+          <svg viewBox="0 0 100 100" className="w-full h-full text-primary animate-floating-geometric" style={{ animationDelay: "-0.5s" }}>
             <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" />
           </svg>
         </div>
@@ -99,14 +99,14 @@ export function Hero() {
       <div 
         className="absolute inset-0 opacity-[0.06] pointer-events-none z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto text-left">
           {/* Main Heading - Enhanced fade-in with blur and scale */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-hero-title optimize-animation">
             <span className="block text-foreground">Glazba koja</span>
@@ -116,14 +116,13 @@ export function Hero() {
           </h1>
 
           {/* Subheading - Fade-in with delay */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-hero-subtitle">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-10 animate-hero-subtitle">
             Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziram se za 
             vjenčanja, rođendane, korporativne evente i klubove. 
-            <span className="text-[#A855F7] font-medium"> Vaša zabava je moja strast.</span>
           </p>
 
           {/* CTA Buttons - Slide-up animation */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-hero-button">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start animate-hero-button">
             <Button asChild size="xl" variant="glow" className="ripple-effect hover-scale">
               <Link href="#kontakt" className="gap-3">
                 <Calendar className="h-5 w-5" />
@@ -139,16 +138,16 @@ export function Hero() {
           </div>
 
           {/* Stats - Counter animation */}
-          <div ref={statsRef} className="grid grid-cols-3 gap-4 sm:gap-8 mt-16 pt-8 border-t border-border/50">
-            <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.6s" }}>
+          <div ref={statsRef} className="grid grid-cols-3 gap-4 sm:gap-8 mt-16 pt-8 border-t border-border/50 max-w-2xl">
+            <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.6s" }}>
               <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count20)}+</div>
               <div className="text-sm sm:text-base text-muted-foreground mt-1">Evenata</div>
             </div>
-            <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.7s" }}>
+            <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.7s" }}>
               <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count5)}+</div>
               <div className="text-sm sm:text-base text-muted-foreground mt-1">Godina iskustva</div>
             </div>
-            <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.8s" }}>
+            <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.8s" }}>
               <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count100)}%</div>
               <div className="text-sm sm:text-base text-muted-foreground mt-1">Zadovoljstvo</div>
             </div>

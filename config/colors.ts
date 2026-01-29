@@ -1,5 +1,5 @@
-// DJ Domzy Brand Colors
-// Paleta inspirirana Kodelab dizajnom - tamna navy pozadina s emerald zelenim akcentima
+// DJ Domza Brand Colors
+// Tamna tema s tamnoplavim akcentima (blue-600/700) - profesionalno, zrelo
 
 export const colors = {
   primary: {
@@ -64,19 +64,19 @@ export const cssVariables = {
     cardForeground: "222 47% 11%",
     popover: "0 0% 100%",
     popoverForeground: "222 47% 11%",
-    primary: "174 100% 38%",
+    primary: "221 83% 53%",
     primaryForeground: "0 0% 100%",
-    secondary: "271 81% 56%",
+    secondary: "224 76% 48%",
     secondaryForeground: "0 0% 100%",
     muted: "210 40% 96%",
     mutedForeground: "215 16% 47%",
-    accent: "271 81% 56%",
+    accent: "221 83% 53%",
     accentForeground: "0 0% 100%",
     destructive: "0 84% 60%",
     destructiveForeground: "0 0% 98%",
     border: "214 32% 91%",
     input: "214 32% 91%",
-    ring: "271 91% 65%",
+    ring: "221 83% 53%",
   },
   dark: {
     background: "222 47% 5%",
@@ -85,18 +85,18 @@ export const cssVariables = {
     cardForeground: "210 40% 98%",
     popover: "222 47% 8%",
     popoverForeground: "210 40% 98%",
-    primary: "174 100% 38%",
+    primary: "221 83% 53%",
     primaryForeground: "0 0% 100%",
-    secondary: "271 81% 56%",
+    secondary: "224 76% 48%",
     secondaryForeground: "0 0% 100%",
     muted: "217 33% 12%",
     mutedForeground: "215 20% 65%",
-    accent: "271 81% 56%",
+    accent: "221 83% 53%",
     accentForeground: "0 0% 100%",
     destructive: "0 63% 31%",
     destructiveForeground: "0 0% 98%",
     border: "217 33% 17%",
     input: "217 33% 17%",
-    ring: "271 91% 65%",
+    ring: "221 83% 53%",
   },
 } as const;

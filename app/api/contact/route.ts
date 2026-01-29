@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     const { name, email, phone, eventType, eventDate, message } = validatedData;
 
     const emailContent = `
-      <h2>Nova poruka s web stranice DJ Domzy</h2>
+      <h2>Nova poruka s web stranice DJ Domza</h2>
       <hr />
       <p><strong>Ime:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
     `;
 
     const { error } = await resend.emails.send({
-      from: "DJ Domzy Web <noreply@djdomzy.hr>",
-      to: process.env.CONTACT_TO_EMAIL || "info@djdomzy.hr",
+      from: "DJ Domza Web <noreply@djdomza.hr>",
+      to: process.env.CONTACT_TO_EMAIL || "info@djdomza.hr",
       replyTo: email,
       subject: `Nova poruka od ${name} - ${eventType}`,
       html: emailContent,

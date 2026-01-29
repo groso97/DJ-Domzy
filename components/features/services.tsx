@@ -9,23 +9,25 @@ import { useIntersectionObserver } from "@/hooks";
 
 export function Services() {
   const [sectionRef, isSectionVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
-  const [textRef, isTextVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
   return (
     <section ref={sectionRef} id="usluge" className="py-20 md:py-28">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
         <SectionHeading
+          badge="Usluge"
           title="Moje usluge"
           subtitle="Bez obzira na vrstu događaja, pružam profesionalnu glazbenu pratnju prilagođenu vašim željama"
+          centered={false}
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {services.map((service, index) => {
             const Icon = iconMap[service.icon];
             return (
               <Card
                 key={service.id}
-                className={`group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover-lift optimize-animation ${
+                className={`group relative optimize-animation transition-transform duration-300 hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20 ${
                   isSectionVisible ? 'animate-card-fade-left' : 'opacity-0'
                 }`}
                 style={{ 
@@ -33,22 +35,20 @@ export function Services() {
                   willChange: 'transform, opacity'
                 }}
               >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <CardHeader className="relative">
+                <CardHeader className="relative p-6 md:p-8">
                   <div 
-                    className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-110 optimize-animation ${
+                    className={`mb-5 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-110 optimize-animation ${
                       isSectionVisible ? 'animate-icon-bounce' : ''
                     }`}
                     style={{ animationDelay: `${index * 0.15 + 0.2}s` }}
                   >
-                    <Icon className="h-7 w-7" />
+                    <Icon className="h-8 w-8" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-2xl">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="relative">
-                  <CardDescription className="text-base leading-relaxed">
+                <CardContent className="relative px-6 md:px-8 pb-6 md:pb-8">
+                  <CardDescription className="text-base md:text-lg leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardContent>
@@ -56,21 +56,6 @@ export function Services() {
             );
           })}
         </div>
-
-        {/* Additional info - Slide-up animation */}
-        <div 
-          ref={textRef as React.RefObject<HTMLDivElement>}
-          className={`mt-12 text-center ${
-            isTextVisible ? 'animate-section-reveal' : 'opacity-0'
-          }`}
-          style={{ animationDelay: '0.8s' }}
-        >
-          <p className="text-muted-foreground">
-            Sve usluge uključuju:{" "}
-            <span className="text-foreground font-medium">
-              profesionalnu DJ opremu, rasvjetu i konzultacije prije događaja
-            </span>
-          </p>
         </div>
       </div>
     </section>

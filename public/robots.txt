@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://djdomzy.hr/sitemap.xml
+Sitemap: https://djdomza.hr/sitemap.xml

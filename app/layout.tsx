@@ -1,44 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Space_Mono, Crimson_Pro } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { CursorTrail } from "@/components/global/cursor-trail";
 import { siteConfig } from "@/config/constants";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const crimsonPro = Crimson_Pro({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-serif",
+  weight: ["400", "500", "700", "800"],
+  variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Profesionalni DJ za nezaboravne događaje`,
+    default: `${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
     "DJ",
-    "DJ Domzy",
+    "DJ Domza",
     "vjenčanje DJ",
     "DJ za vjenčanje",
     "DJ za rođendan",
@@ -48,8 +33,8 @@ export const metadata: Metadata = {
     "glazba za zabavu",
     "profesionalni DJ",
   ],
-  authors: [{ name: "DJ Domzy" }],
-  creator: "DJ Domzy",
+  authors: [{ name: "DJ Domza" }],
+  creator: "DJ Domza",
   openGraph: {
     type: "website",
     locale: "hr_HR",
@@ -99,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="hr" className="dark" suppressHydrationWarning>
       <body 
-        className={`${bebasNeue.variable} ${spaceMono.variable} ${crimsonPro.variable} min-h-screen`}
+        className={`${plusJakartaSans.variable} min-h-screen`}
         suppressHydrationWarning
       >
         <div className="relative flex min-h-screen flex-col">
@@ -107,7 +92,6 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
-        <CursorTrail />
         <Toaster position="top-center" richColors />
         <Analytics />
       </body>
