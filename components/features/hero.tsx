@@ -73,28 +73,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Geometric Shapes - Enhanced with floating animation */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Hexagon */}
-        <div className="absolute top-[15%] right-[12%] w-20 h-20 opacity-10 optimize-animation">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary animate-floating-geometric" style={{ animationDelay: "-1s" }}>
-            <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" />
-          </svg>
-        </div>
-        {/* Triangle */}
-        <div className="absolute bottom-[20%] left-[15%] w-16 h-16 opacity-10 optimize-animation">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary animate-floating-geometric" style={{ animationDelay: "-2s" }}>
-            <polygon points="50,10 90,90 10,90" fill="currentColor" />
-          </svg>
-        </div>
-        {/* Small hexagon */}
-        <div className="absolute top-[60%] right-[20%] w-12 h-12 opacity-8 optimize-animation">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary animate-floating-geometric" style={{ animationDelay: "-0.5s" }}>
-            <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" />
-          </svg>
-        </div>
-      </div>
-
       {/* Grid Pattern - Enhanced */}
       <div 
         className="absolute inset-0 opacity-[0.06] pointer-events-none z-0"
@@ -116,7 +94,7 @@ export function Hero() {
 
           {/* Subheading - Fade-in with delay */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-hero-subtitle leading-relaxed">
-            Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziram se za 
+            Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziran za
             vjenčanja, rođendane, korporativne evente i klubove. 
           </p>
 
