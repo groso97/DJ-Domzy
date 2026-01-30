@@ -143,7 +143,7 @@ export function Contact() {
               <div className="flex items-start gap-3">
                 <Calendar className="h-6 w-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-semibold text-primary text-lg">Dostupnost 2026</div>
+                  <div className="font-semibold text-lg">Dostupnost 2026</div>
                   <p className="text-sm md:text-base text-muted-foreground mt-2 leading-relaxed">
                     Termini se brzo popunjavaju! Rezervirajte svoj datum na vrijeme.
                   </p>
@@ -174,7 +174,7 @@ export function Contact() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="ivan@primjer.hr"
+                    placeholder="ivan@gmail.com"
                     {...register("email")}
                     aria-invalid={!!errors.email}
                   />
@@ -190,7 +190,7 @@ export function Contact() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+385 99 424 2425"
+                    placeholder="+385 99 123 4567"
                     {...register("phone")}
                   />
                 </div>

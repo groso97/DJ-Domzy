@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
-import Link from "next/link";
-import { Play, Calendar } from "lucide-react";
+import { Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCounter, useIntersectionObserver } from "@/hooks";
+import { siteConfig } from "@/config/constants";
 
 export function Hero() {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -105,7 +105,7 @@ export function Hero() {
         }}
       />
 
-      <div className="content-width relative z-10 text-left">
+      <div className="content-width relative z-10 text-center mx-auto">
           {/* Main Heading - Enhanced fade-in with blur and scale */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-hero-title optimize-animation leading-[1.1]">
             <span className="block text-foreground">Glazba koja</span>
@@ -115,39 +115,39 @@ export function Hero() {
           </h1>
 
           {/* Subheading - Fade-in with delay */}
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mb-12 animate-hero-subtitle leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-hero-subtitle leading-relaxed">
             Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziram se za 
             vjenčanja, rođendane, korporativne evente i klubove. 
           </p>
 
           {/* CTA Buttons - Slide-up animation */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start animate-hero-button">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-hero-button">
             <Button asChild size="xl" variant="glow" className="ripple-effect hover-scale">
-              <Link href="#kontakt" className="gap-3">
+              <a href="#kontakt" className="gap-3 flex items-center">
                 <Calendar className="h-5 w-5" />
                 Zatraži ponudu
-              </Link>
+              </a>
             </Button>
             <Button asChild size="xl" variant="outline" className="ripple-effect hover-scale">
-              <Link href="#kontakt" className="gap-3">
-                <Play className="h-5 w-5" />
-                Pogledaj radove
-              </Link>
+              <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`} className="gap-3 flex items-center">
+                <Phone className="h-5 w-5" />
+                Nazovi odmah
+              </a>
             </Button>
           </div>
 
           {/* Stats - Counter animation */}
-          <div ref={statsRef} className="grid grid-cols-3 gap-6 sm:gap-10 mt-16 pt-10 border-t border-border/50 max-w-3xl">
-            <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.6s" }}>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">{Math.round(count20)}+</div>
+          <div ref={statsRef} className="grid grid-cols-3 gap-6 sm:gap-10 mt-16 pt-10 border-t border-border/50 max-w-3xl mx-auto">
+            <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.6s" }}>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{Math.round(count20)}+</div>
               <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Evenata</div>
             </div>
-            <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.7s" }}>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">{Math.round(count5)}+</div>
+            <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.7s" }}>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{Math.round(count5)}+</div>
               <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Godina iskustva</div>
             </div>
-            <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.8s" }}>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">{Math.round(count100)}%</div>
+            <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.8s" }}>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{Math.round(count100)}%</div>
               <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Zadovoljstvo</div>
             </div>
           </div>

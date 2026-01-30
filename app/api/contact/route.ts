@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
     `;
 
     const { error } = await resend.emails.send({
-      from: "DJ Domza Web <noreply@djdomza.hr>",
-      to: process.env.CONTACT_TO_EMAIL || "info@djdomza.hr",
+      from: "DJ Domza Web <noreply@djdomza-eventi.hr>",
+      to: process.env.CONTACT_TO_EMAIL || "info@djdomza-eventi.hr",
       replyTo: email,
       subject: `Nova poruka od ${name} - ${eventType}`,
       html: emailContent,

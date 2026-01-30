@@ -1,13 +1,16 @@
 import Link from "next/link";
-import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
-import { Separator } from "@/components/ui/separator";
+import { WhatsAppIcon } from "@/components/shared/whatsapp-icon";
 import { siteConfig, navLinks } from "@/config/constants";
+
+const whatsappNumber = siteConfig.contact.phone.replace(/\s/g, "").replace("+", "");
+const whatsappMessage = encodeURIComponent("Pozdrav! Zanima me ponuda za DJ usluge.");
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const socialLinks = [
   { href: siteConfig.links.instagram, icon: Instagram, label: "Instagram" },
-  { href: siteConfig.links.facebook, icon: Facebook, label: "Facebook" },
-  { href: siteConfig.links.youtube, icon: Youtube, label: "YouTube" },
+  { href: whatsappUrl, icon: WhatsAppIcon, label: "WhatsApp" },
 ];
 
 export function Footer() {
@@ -31,10 +34,14 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:scale-110"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:scale-110 [&_svg]:text-primary [&:hover_svg]:text-primary-foreground"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  {social.label === "WhatsApp" ? (
+                    <WhatsAppIcon size={22} />
+                  ) : (
+                    <social.icon className="h-5 w-5" />
+                  )}
                 </Link>
               ))}
             </div>

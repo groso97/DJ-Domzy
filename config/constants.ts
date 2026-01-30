@@ -4,7 +4,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza-eventi.hr",
   ogImage: "/og-image.jpg",
   links: {
-    instagram: "https://instagram.com/djdomza",
+    instagram: "https://www.instagram.com/djdomzaeventi?igsh=dWo2OHFvbGRvMXpj",
     facebook: "https://facebook.com/djdomza",
     youtube: "https://youtube.com/@djdomza",
     soundcloud: "https://soundcloud.com/djdomza",
@@ -14,6 +14,9 @@ export const siteConfig = {
     phone: "+385 99 424 2425",
   },
 };
+
+/** LocalStorage key for cookie notice – used by CookieBanner and referenced on /kolacici */
+export const COOKIE_CONSENT_KEY = "djdomza-cookie-notice-seen";
 
 export const navLinks = [
   { href: "/", label: "Početna" },

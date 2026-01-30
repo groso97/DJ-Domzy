@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { CookieBanner } from "@/components/shared/cookie-banner";
 import { siteConfig } from "@/config/constants";
 import "./globals.css";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
         </div>
         <Toaster position="top-center" richColors />
         <Analytics />
+        <CookieBanner />
       </body>
     </html>
   );

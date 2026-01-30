@@ -16,7 +16,7 @@ export function CTA() {
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight">
               Spremni za nezaboravnu zabavu?
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
               Kontaktirajte me danas i osigurajte termin za svoj događaj. 
               Zajedno ćemo stvoriti savršenu glazbenu atmosferu!
             </p>
@@ -27,7 +27,8 @@ export function CTA() {
             <Button
               asChild
               size="xl"
-              className="bg-white text-primary hover:bg-white/90 shadow-xl hover-scale ripple-effect"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10 bg-transparent hover-scale ripple-effect"
             >
               <Link href="#kontakt" className="gap-3">
                 <Calendar className="h-5 w-5" />
