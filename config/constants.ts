@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "DJ Domza",
   description: "DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza.hr",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza-eventi.hr",
   ogImage: "/og-image.jpg",
   links: {
     instagram: "https://instagram.com/djdomza",
@@ -10,7 +10,7 @@ export const siteConfig = {
     soundcloud: "https://soundcloud.com/djdomza",
   },
   contact: {
-    email: "info@djdomza.hr",
+    email: "info@djdomza-eventi.hr",
     phone: "+385 99 424 2425",
   },
 };

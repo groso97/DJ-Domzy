@@ -4,7 +4,6 @@
   /* Fonts - Plus Jakarta Sans (display: bold/extra-bold, body: regular/medium) */
   --font-display: var(--font-sans), ui-sans-serif, sans-serif;
   --font-body: var(--font-sans), ui-sans-serif, sans-serif;
-  --font-serif: var(--font-sans), ui-sans-serif, sans-serif;
 
   /* Animation */
   --animate-float: float 6s ease-in-out infinite;
@@ -210,6 +209,28 @@
   border-color: hsl(var(--border));
 }
 
+/* Jedinstvena širina sadržaja za header, footer i sve sekcije */
+.content-width {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .content-width {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .content-width {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -234,11 +255,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-.font-serif {
-  font-family: var(--font-serif);
-  font-weight: 400;
-}
-
 /* Custom scrollbar */
 .scrollbar-thin {
   scrollbar-width: thin;
@@ -257,6 +273,73 @@ h1, h2, h3, h4, h5, h6 {
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background: hsl(var(--primary));
   border-radius: 3px;
+}
+
+/* Legal pages (privatnost, uvjeti, kolacici) */
+.legal-page-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.legal-page-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.legal-page-content p {
+  color: #9CA3AF;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  font-size: 0.9375rem;
+}
+.legal-page-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.25rem;
+  margin-top: 0.75rem;
+}
+.legal-page-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.625rem;
+  color: #9CA3AF;
+  line-height: 1.65;
+  font-size: 0.9375rem;
+}
+.legal-page-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2563EB;
+}
+.legal-page-content a {
+  color: #3B82F6;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.legal-page-content a:hover {
+  border-bottom-color: #3B82F6;
+}
+.legal-page-content strong {
+  color: #E5E7EB;
+  font-weight: 600;
+}
+
+/* Date input calendar icon - white on dark background */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.85;
+  cursor: pointer;
 }
 
 /* Gradient text */
@@ -347,6 +430,22 @@ h1, h2, h3, h4, h5, h6 {
   animation: badge-shadow-pulse 3s ease-in-out infinite;
   position: relative;
   z-index: 1;
+}
+
+/* Section badge pulse glow - primary #2563EB */
+@keyframes pulse-glow-badge {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.3), 0 0 30px rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.5), 0 0 50px rgba(37, 99, 235, 0.2);
+    border-color: rgba(37, 99, 235, 0.6);
+  }
+}
+
+.animate-pulse-glow-badge {
+  animation: pulse-glow-badge 2s ease-in-out infinite;
 }
 
 /* Glass morphism */
@@ -613,6 +712,21 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
 }
 
 .menu-item-fade-in {

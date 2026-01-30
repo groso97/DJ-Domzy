@@ -11,9 +11,8 @@ export function Services() {
   const [sectionRef, isSectionVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
   return (
-    <section ref={sectionRef} id="usluge" className="py-20 md:py-28">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+    <section ref={sectionRef} id="usluge" className="py-24 md:py-32">
+      <div className="content-width">
         <SectionHeading
           badge="Usluge"
           title="Moje usluge"
@@ -27,7 +26,7 @@ export function Services() {
             return (
               <Card
                 key={service.id}
-                className={`group relative optimize-animation transition-transform duration-300 hover:-translate-y-3 hover:shadow-xl hover:shadow-primary/20 ${
+                className={`group relative optimize-animation transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/25 ${
                   isSectionVisible ? 'animate-card-fade-left' : 'opacity-0'
                 }`}
                 style={{ 
@@ -38,14 +37,14 @@ export function Services() {
                 
                 <CardHeader className="relative p-6 md:p-8">
                   <div 
-                    className={`mb-5 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-110 optimize-animation ${
+                    className={`mb-6 inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-110 optimize-animation ${
                       isSectionVisible ? 'animate-icon-bounce' : ''
                     }`}
                     style={{ animationDelay: `${index * 0.15 + 0.2}s` }}
                   >
-                    <Icon className="h-8 w-8" />
+                    <Icon className="h-8 w-8 md:h-10 md:w-10" />
                   </div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  <CardTitle className="text-2xl md:text-3xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative px-6 md:px-8 pb-6 md:pb-8">
                   <CardDescription className="text-base md:text-lg leading-relaxed">
@@ -55,7 +54,6 @@ export function Services() {
               </Card>
             );
           })}
-        </div>
         </div>
       </div>
     </section>

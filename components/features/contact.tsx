@@ -109,9 +109,8 @@ export function Contact() {
   };
 
   return (
-    <section id="kontakt" className="py-20 md:py-28">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+    <section id="kontakt" className="py-24 md:py-32">
+      <div className="content-width">
         <SectionHeading
           badge="Kontakt"
           title="Kontaktirajte me"
@@ -123,10 +122,10 @@ export function Contact() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-bold">
                 Dogovorimo se!
               </h3>
-              <p className="text-muted-foreground font-serif">
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Ispunite formu ili me kontaktirajte direktno. Odgovorit ću vam 
                 unutar 24 sata s detaljima i ponudom prilagođenom vašem događaju.
               </p>
@@ -140,12 +139,12 @@ export function Contact() {
             </div>
 
             {/* Availability Note */}
-            <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
+            <div className="p-5 rounded-xl bg-primary/10 border border-primary/20">
               <div className="flex items-start gap-3">
-                <Calendar className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <Calendar className="h-6 w-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium text-primary">Dostupnost 2026</div>
-                  <p className="text-sm text-muted-foreground mt-1 font-serif">
+                  <div className="font-semibold text-primary text-lg">Dostupnost 2026</div>
+                  <p className="text-sm md:text-base text-muted-foreground mt-2 leading-relaxed">
                     Termini se brzo popunjavaju! Rezervirajte svoj datum na vrijeme.
                   </p>
                 </div>
@@ -258,7 +257,6 @@ export function Contact() {
               </p>
             </form>
           </div>
-        </div>
         </div>
       </div>
     </section>

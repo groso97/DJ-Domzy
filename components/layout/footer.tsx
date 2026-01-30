@@ -15,13 +15,12 @@ export function Footer() {
 
   return (
     <footer className="bg-muted/50 border-t">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
-        <div className="max-w-6xl mx-auto">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 text-left">
+      <div className="content-width py-16 md:py-20">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-left">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <Logo />
-            <p className="text-sm text-muted-foreground max-w-xs">
+            <p className="text-sm md:text-base text-muted-foreground max-w-xs leading-relaxed">
               DJ za nezaboravne događaje. Vjenčanja, rođendani,
               korporativni eventi i klubovi.
             </p>
@@ -43,13 +42,13 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Brze poveznice</h3>
-            <ul className="space-y-2">
+            <h3 className="font-semibold text-xl mb-5">Brze poveznice</h3>
+            <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -60,28 +59,28 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Kontakt</h3>
-            <ul className="space-y-3">
+            <h3 className="font-semibold text-xl mb-5">Kontakt</h3>
+            <ul className="space-y-4">
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                 >
-                  <Mail className="h-4 w-4" />
+                  <Mail className="h-5 w-5 shrink-0" />
                   {siteConfig.contact.email}
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                 >
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-5 w-5 shrink-0" />
                   {siteConfig.contact.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
+              <li className="flex items-center gap-3 text-sm md:text-base text-muted-foreground">
+                <MapPin className="h-5 w-5 shrink-0" />
                 Zagreb, Hrvatska
               </li>
             </ul>
@@ -90,12 +89,12 @@ export function Footer() {
           
           {/* Legal */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Pravno</h3>
-            <ul className="space-y-2">
+            <h3 className="font-semibold text-xl mb-5">Pravno</h3>
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/privatnost"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                 >
                   Politika privatnosti
                 </Link>
@@ -103,7 +102,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/uvjeti"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                 >
                   Uvjeti korištenja
                 </Link>
@@ -111,7 +110,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/kolacici"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                 >
                   Kolačići
                 </Link>
@@ -119,25 +118,22 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        </div>
 
-        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="my-8 h-px w-full bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.15)]"></div>
+        <div className="my-10 h-px w-full bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.15)]"></div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm md:text-base text-muted-foreground">
+          <p>© {currentYear} DJ Domza. Sva prava pridržana.</p>
           <p>
             Made with care by{" "}
             <a
               href="https://algo-solutions.net/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors font-medium"
             >
               ALGO Solutions
             </a>
           </p>
-          <p>© {currentYear} DJ Domza. Sva prava pridržana.</p>
-        </div>
         </div>
       </div>
     </footer>

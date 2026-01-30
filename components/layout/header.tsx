@@ -119,8 +119,8 @@ export function Header() {
 
       {/* Content */}
       <div className="relative h-full w-full flex flex-col z-[101]">
-        {/* Header with Logo and Close Button */}
-        <div className="flex items-center justify-between px-6 md:px-8 lg:px-12 py-6 md:py-8">
+        {/* Header with Logo and Close Button - same width as page content */}
+        <div className="content-width flex items-center justify-between py-6 md:py-8">
           <Logo />
           {/* Close Button (X) */}
           <button
@@ -136,9 +136,9 @@ export function Header() {
           </button>
         </div>
 
-        {/* Navigation - Left positioned */}
+        {/* Navigation - same width as page content */}
         <div className="flex-1 flex items-center">
-          <div className="px-6 md:px-8 lg:px-12 w-full max-w-4xl">
+          <div className="content-width w-full">
             <div className="text-sm tracking-widest text-primary mb-8 font-body uppercase">NAVIGACIJA</div>
             <nav className="space-y-6">
               {navLinks.map((link, index) => {
@@ -204,7 +204,7 @@ export function Header() {
             : "bg-transparent"
         )}
       >
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
+        <div className="content-width">
           <nav className="flex h-20 items-center justify-between">
             <Logo />
 

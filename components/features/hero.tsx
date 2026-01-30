@@ -17,7 +17,7 @@ export function Hero() {
   const count100 = useCounter(isVisible100 ? 100 : 0, 0, { duration: 2000, startDelay: 0 });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 pb-20 md:pb-28">
       
       {/* Floating Elements - Enhanced with floating animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -105,18 +105,17 @@ export function Hero() {
         }}
       />
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto text-left">
+      <div className="content-width relative z-10 text-left">
           {/* Main Heading - Enhanced fade-in with blur and scale */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-hero-title optimize-animation">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-hero-title optimize-animation leading-[1.1]">
             <span className="block text-foreground">Glazba koja</span>
-            <span className="block mt-2">
+            <span className="block mt-3">
               <span className="gradient-text">pokreće emocije</span>
             </span>
           </h1>
 
           {/* Subheading - Fade-in with delay */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-10 animate-hero-subtitle">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mb-12 animate-hero-subtitle leading-relaxed">
             Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziram se za 
             vjenčanja, rođendane, korporativne evente i klubove. 
           </p>
@@ -138,21 +137,20 @@ export function Hero() {
           </div>
 
           {/* Stats - Counter animation */}
-          <div ref={statsRef} className="grid grid-cols-3 gap-4 sm:gap-8 mt-16 pt-8 border-t border-border/50 max-w-2xl">
+          <div ref={statsRef} className="grid grid-cols-3 gap-6 sm:gap-10 mt-16 pt-10 border-t border-border/50 max-w-3xl">
             <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.6s" }}>
-              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count20)}+</div>
-              <div className="text-sm sm:text-base text-muted-foreground mt-1">Evenata</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">{Math.round(count20)}+</div>
+              <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Evenata</div>
             </div>
             <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.7s" }}>
-              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count5)}+</div>
-              <div className="text-sm sm:text-base text-muted-foreground mt-1">Godina iskustva</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">{Math.round(count5)}+</div>
+              <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Godina iskustva</div>
             </div>
             <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-left animate-section-reveal" style={{ animationDelay: "0.8s" }}>
-              <div className="text-3xl sm:text-4xl font-bold gradient-text">{Math.round(count100)}%</div>
-              <div className="text-sm sm:text-base text-muted-foreground mt-1">Zadovoljstvo</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">{Math.round(count100)}%</div>
+              <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Zadovoljstvo</div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );
