@@ -10,7 +10,7 @@ export const siteConfig = {
     soundcloud: "https://soundcloud.com/djdomza",
   },
   contact: {
-    email: "info@djdomza-eventi.hr",
+    email: "booking@djdomza-eventi.hr",
     phone: "+385 99 424 2425",
   },
 };
