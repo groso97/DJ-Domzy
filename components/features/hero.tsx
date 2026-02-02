@@ -18,67 +18,39 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 pb-20 md:pb-28">
-      
-      {/* Floating Elements - Optimized */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/30 rounded-full blur-3xl animate-floating-geometric" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/30 rounded-full blur-3xl animate-floating-geometric" style={{ animationDelay: "-3s" }} />
-      </div>
-
-
-      {/* Audio Waveform Equalizer */}
-      <div className="absolute left-[8%] top-1/2 -translate-y-1/2 gap-1.5 items-end pointer-events-none z-0 hidden lg:flex">
-        {[1, 0.7, 0.9, 0.6, 0.8].map((height, i) => (
-          <div 
-            key={`bar-${i}`}
-            className="w-1.5 bg-primary rounded-t opacity-60"
-            style={{ 
-              height: `${height * 50}px`,
-              animation: `audio-visualizer ${1 + i * 0.15}s ease-in-out infinite`,
-              animationDelay: `${i * 0.1}s`
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Vinyl Record */}
-      <div className="absolute right-[6%] top-1/2 -translate-y-1/2 opacity-12 pointer-events-none z-0 hidden lg:block">
-        <div className="relative w-64 h-64 rounded-full bg-gradient-radial from-[#2563EB]/20 via-[#2563EB]/10 to-transparent border-4 border-[#2563EB]/20 animate-vinyl-spin">
-          {/* Groove lines */}
-          <div className="absolute inset-0 rounded-full" style={{
-            backgroundImage: `repeating-conic-gradient(
-              from 0deg at 50% 50%,
-              transparent 0deg 2deg,
-              rgba(37, 99, 235, 0.1) 2deg 4deg
-            )`
-          }} />
-          {/* Center circle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#0A111F] border-2 border-[#2563EB]/30" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#2563EB]/20" />
-        </div>
-      </div>
-
-      {/* Grid Pattern - Enhanced */}
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 opacity-[0.06] pointer-events-none z-0"
+        className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
+          backgroundImage: "url('/hero-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       />
+      {/* Dark overlay for text readability */}
+      <div 
+        className="absolute inset-0 z-[1]"
+        style={{
+          background: "linear-gradient(180deg, rgba(10, 17, 31, 0.75) 0%, rgba(10, 17, 31, 0.85) 50%, rgba(10, 17, 31, 0.95) 100%)",
+        }}
+      />
+      {/* Subtle blue glow accent */}
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-40">
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#2563EB]/20 to-transparent" />
+      </div>
 
-      <div className="content-width relative z-10 text-center mx-auto">
-          {/* Main Heading - Enhanced fade-in with blur and scale */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-hero-title leading-[1.1]">
-            <span className="block text-foreground">Glazba koja</span>
+      <div className="content-width relative z-10 text-center mx-auto px-4">
+          {/* Main Heading */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-hero-title leading-[1.1] drop-shadow-lg">
+            <span className="block text-white">Glazba koja</span>
             <span className="block mt-3">
-              <span className="gradient-text">pokreće emocije</span>
+              <span className="gradient-text" style={{ textShadow: "0 2px 20px rgba(37, 99, 235, 0.5)" }}>pokreće emocije</span>
             </span>
           </h1>
 
-          {/* Subheading - Fade-in with delay */}
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-hero-subtitle leading-relaxed">
+          {/* Subheading */}
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 animate-hero-subtitle leading-relaxed drop-shadow-md">
             Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziran za
             vjenčanja, rođendane, korporativne evente i klubove. 
           </p>
@@ -100,18 +72,18 @@ export function Hero() {
           </div>
 
           {/* Stats - Counter animation */}
-          <div ref={statsRef} className="grid grid-cols-3 gap-6 sm:gap-10 mt-16 pt-10 border-t border-border/50 max-w-3xl mx-auto">
-            <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.6s" }}>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{Math.round(count20)}+</div>
-              <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Evenata</div>
+          <div ref={statsRef} className="grid grid-cols-3 gap-6 sm:gap-10 mt-16 pt-10 border-t border-white/20 max-w-3xl mx-auto animate-section-reveal" style={{ animationDelay: "0.6s" }}>
+            <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-center">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count20)}+</div>
+              <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Evenata</div>
             </div>
-            <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.7s" }}>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{Math.round(count5)}+</div>
-              <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Godina iskustva</div>
+            <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-center">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count5)}+</div>
+              <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Godina iskustva</div>
             </div>
-            <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center animate-section-reveal" style={{ animationDelay: "0.8s" }}>
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">{Math.round(count100)}%</div>
-              <div className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">Zadovoljstvo</div>
+            <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count100)}%</div>
+              <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Zadovoljstvo</div>
             </div>
           </div>
       </div>
