@@ -13,6 +13,109 @@ const contactSchema = z.object({
   message: z.string().min(10, "Poruka mora imati najmanje 10 znakova"),
 });
 
+const eventTypeLabels: Record<string, string> = {
+  vjencanje: "Vjenčanje",
+  rodendan: "Rođendan",
+  korporativni: "Korporativni event",
+  klub: "Klub / Festival",
+  "privatna-zabava": "Privatna zabava",
+  ostalo: "Ostalo",
+};
+
+function buildEmailHtml(data: {
+  name: string;
+  email: string;
+  phone?: string;
+  eventType: string;
+  eventDate?: string;
+  message: string;
+}) {
+  const { name, email, phone, eventType, eventDate, message } = data;
+  const eventLabel = eventTypeLabels[eventType] || eventType;
+
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0C0F15;">
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #0C0F15;">
+    <tr>
+      <td style="padding: 40px 20px;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 560px; margin: 0 auto; background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(10, 17, 31, 0.95) 100%); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);">
+          <tr>
+            <td style="padding: 32px 40px 24px; border-bottom: 1px solid rgba(37, 99, 235, 0.15);">
+              <div style="display: inline-block; padding: 6px 14px; background: rgba(37, 99, 235, 0.15); border-radius: 8px; margin-bottom: 16px;">
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #60A5FA;">KONTAKT FORMA</span>
+              </div>
+              <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #ffffff; letter-spacing: -0.02em;">Nova poruka s web stranice</h1>
+              <p style="margin: 8px 0 0; font-size: 15px; color: #94A3B8;">DJ Domza Eventi</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px 40px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Ime i prezime</span>
+                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${name}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Email</span>
+                    <p style="margin: 4px 0 0; font-size: 16px;"><a href="mailto:${email}" style="color: #60A5FA; text-decoration: none;">${email}</a></p>
+                  </td>
+                </tr>
+                ${phone ? `
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Telefon</span>
+                    <p style="margin: 4px 0 0; font-size: 16px;"><a href="tel:${phone}" style="color: #60A5FA; text-decoration: none;">${phone}</a></p>
+                  </td>
+                </tr>
+                ` : ""}
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Vrsta događaja</span>
+                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${eventLabel}</p>
+                  </td>
+                </tr>
+                ${eventDate ? `
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Datum događaja</span>
+                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${eventDate}</p>
+                  </td>
+                </tr>
+                ` : ""}
+                <tr>
+                  <td style="padding: 16px 0 0;">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Poruka</span>
+                    <div style="margin-top: 8px; padding: 16px; background: rgba(37, 99, 235, 0.08); border-radius: 10px; border-left: 3px solid #2563EB;">
+                      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #cbd5e1;">${message.replace(/\n/g, "<br>")}</p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 24px 40px 32px; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+              <p style="margin: 0; font-size: 12px; color: #64748B;">Odgovori direktno na ovaj email za kontakt s klijentom.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -20,24 +123,21 @@ export async function POST(request: NextRequest) {
 
     const { name, email, phone, eventType, eventDate, message } = validatedData;
 
-    const emailContent = `
-      <h2>Nova poruka s web stranice DJ Domza</h2>
-      <hr />
-      <p><strong>Ime:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ""}
-      <p><strong>Vrsta događaja:</strong> ${eventType}</p>
-      ${eventDate ? `<p><strong>Datum događaja:</strong> ${eventDate}</p>` : ""}
-      <hr />
-      <p><strong>Poruka:</strong></p>
-      <p>${message.replace(/\n/g, "<br />")}</p>
-    `;
+    const emailContent = buildEmailHtml({
+      name,
+      email,
+      phone,
+      eventType,
+      eventDate,
+      message,
+    });
 
+    const eventLabel = eventTypeLabels[eventType] || eventType;
     const { error } = await resend.emails.send({
-      from: "DJ Domza Web <noreply@djdomza-eventi.hr>",
-      to: process.env.CONTACT_TO_EMAIL || "info@djdomza-eventi.hr",
+      from: "DJ Domza <noreply@djdomza-eventi.hr>",
+      to: process.env.CONTACT_TO_EMAIL || "booking@djdomza-eventi.hr",
       replyTo: email,
-      subject: `Nova poruka od ${name} - ${eventType}`,
+      subject: `Nova poruka od ${name} - ${eventLabel}`,
       html: emailContent,
     });
 
