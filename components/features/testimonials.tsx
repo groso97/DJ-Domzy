@@ -37,10 +37,10 @@ export function Testimonials() {
           centered={false}
         />
 
-        {/* Carousel - auto only, no arrows */}
+        {/* Carousel - auto only, no arrows. On mobile: 1 card full width; on desktop: 3 cards */}
         <div className="relative mt-12 overflow-hidden">
           <div 
-            className="flex gap-6 transition-transform duration-500 ease-in-out"
+            className="flex w-[300%] md:w-full gap-0 md:gap-6 transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${currentIndex * (100 / 3)}%)`,
             }}
@@ -48,7 +48,7 @@ export function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <Card
                 key={testimonial.id}
-                className={`relative shrink-0 w-full md:w-[calc(33.333%-1rem)] ${
+                className={`relative shrink-0 flex-[0_0_33.333%] md:flex-[0_0_calc(33.333%-1rem)] md:w-auto ${
                   isSectionVisible ? 'animate-carousel-slide' : 'opacity-0'
                 }`}
                 style={{ 

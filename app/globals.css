@@ -122,15 +122,20 @@
   }
 }
 
-@keyframes sound-wave {
-  0% {
-    transform: translate(-50%, -50%) scale(0.8);
-    opacity: 0.8;
+/* DJ Equalizer bar pulse - modern audio visualizer */
+@keyframes dj-eq-bar {
+  0%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
   }
-  100% {
-    transform: translate(-50%, -50%) scale(2);
-    opacity: 0;
+  50% {
+    transform: scaleY(1.5);
+    opacity: 1;
   }
+}
+.animate-dj-eq-bar {
+  animation: dj-eq-bar 0.8s ease-in-out infinite;
+  transform-origin: bottom;
 }
 
 @keyframes vinyl-spin {
@@ -602,6 +607,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: scale(1.04);
 }
 
+/* Services cards: smooth lift only, no scale */
+.card-transparent.card-lift-only:hover {
+  transform: translateY(-0.5rem);
+}
+
 .card-transparent:hover::before {
   opacity: 1;
 }
@@ -676,10 +686,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: waveform-pulse 1s ease-in-out infinite;
 }
 
-.animate-sound-wave {
-  animation: sound-wave 3s ease-out infinite;
-}
-
 .animate-vinyl-spin {
   animation: vinyl-spin 20s linear infinite;
 }
@@ -741,7 +747,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: inline-block;
   transform: translateX(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
-  will-change: transform;
 }
 
 .menu-link-hover:hover {
@@ -833,15 +838,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* 3. ABOUT SECTION ANIMATIONS */
-@keyframes image-scale-rotate {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  50% {
-    transform: scale(1.02) rotate(2deg);
-  }
-}
-
 @keyframes checkmark-bounce {
   0%, 100% {
     transform: scale(1);
@@ -1081,7 +1077,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* Utility Classes */
 .animate-hero-title {
   animation: hero-title-fade 1.2s ease-out forwards;
-  will-change: transform, opacity, filter;
 }
 
 .animate-hero-subtitle {
@@ -1096,7 +1091,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .animate-floating-geometric {
   animation: floating-geometric 8s ease-in-out infinite;
-  will-change: transform;
 }
 
 .animate-icon-bounce {
@@ -1106,11 +1100,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .animate-card-fade-left {
   animation: card-fade-left 0.8s ease-out forwards;
   opacity: 0;
-}
-
-.animate-image-scale-rotate {
-  animation: image-scale-rotate 4s ease-in-out infinite;
-  will-change: transform;
 }
 
 .animate-checkmark-bounce {

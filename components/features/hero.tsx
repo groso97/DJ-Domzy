@@ -19,34 +19,19 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 pb-20 md:pb-28">
       
-      {/* Floating Elements - Enhanced with floating animation */}
+      {/* Floating Elements - Optimized */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/30 rounded-full blur-3xl animate-floating-geometric" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/30 rounded-full blur-3xl animate-floating-geometric" style={{ animationDelay: "-3s" }} />
-        <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-secondary/30 rounded-full blur-3xl animate-floating-geometric" style={{ animationDelay: "-1.5s" }} />
-        <div className="absolute top-3/4 left-1/3 w-72 h-72 bg-primary/25 rounded-full blur-3xl animate-floating-geometric" style={{ animationDelay: "-2.5s" }} />
       </div>
 
-      {/* Pulsing Sound Waves */}
-      {[...Array(4)].map((_, i) => (
-        <div
-          key={`wave-${i}`}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#2563EB]/15 pointer-events-none"
-          style={{
-            width: `${200 + i * 120}px`,
-            height: `${200 + i * 120}px`,
-            animation: `sound-wave ${3 + i * 0.5}s ease-out infinite`,
-            animationDelay: `${i * 0.4}s`
-          }}
-        />
-      ))}
 
       {/* Audio Waveform Equalizer */}
-      <div className="absolute left-[8%] top-1/2 -translate-y-1/2 gap-1.5 items-end pointer-events-none z-0 hidden md:flex">
-        {[1, 0.7, 0.9, 0.6, 0.8, 0.75, 0.65, 0.85].map((height, i) => (
+      <div className="absolute left-[8%] top-1/2 -translate-y-1/2 gap-1.5 items-end pointer-events-none z-0 hidden lg:flex">
+        {[1, 0.7, 0.9, 0.6, 0.8].map((height, i) => (
           <div 
             key={`bar-${i}`}
-            className="w-1.5 bg-primary rounded-t opacity-60 optimize-animation"
+            className="w-1.5 bg-primary rounded-t opacity-60"
             style={{ 
               height: `${height * 50}px`,
               animation: `audio-visualizer ${1 + i * 0.15}s ease-in-out infinite`,
@@ -58,7 +43,7 @@ export function Hero() {
 
       {/* Vinyl Record */}
       <div className="absolute right-[6%] top-1/2 -translate-y-1/2 opacity-12 pointer-events-none z-0 hidden lg:block">
-        <div className="relative w-64 h-64 rounded-full bg-gradient-radial from-[#2563EB]/20 via-[#2563EB]/10 to-transparent border-4 border-[#2563EB]/20 animate-vinyl-spin optimize-animation">
+        <div className="relative w-64 h-64 rounded-full bg-gradient-radial from-[#2563EB]/20 via-[#2563EB]/10 to-transparent border-4 border-[#2563EB]/20 animate-vinyl-spin">
           {/* Groove lines */}
           <div className="absolute inset-0 rounded-full" style={{
             backgroundImage: `repeating-conic-gradient(
@@ -85,7 +70,7 @@ export function Hero() {
 
       <div className="content-width relative z-10 text-center mx-auto">
           {/* Main Heading - Enhanced fade-in with blur and scale */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-hero-title optimize-animation leading-[1.1]">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-hero-title leading-[1.1]">
             <span className="block text-foreground">Glazba koja</span>
             <span className="block mt-3">
               <span className="gradient-text">pokreće emocije</span>

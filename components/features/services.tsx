@@ -26,21 +26,17 @@ export function Services() {
             return (
               <Card
                 key={service.id}
-                className={`group relative optimize-animation transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/25 ${
+                className={`group relative transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/25 ${
                   isSectionVisible ? 'animate-card-fade-left' : 'opacity-0'
                 }`}
                 style={{ 
                   animationDelay: `${index * 0.15}s`,
-                  willChange: 'transform, opacity'
                 }}
               >
                 
                 <CardHeader className="relative p-6 md:p-8">
                   <div 
-                    className={`mb-6 inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-110 optimize-animation ${
-                      isSectionVisible ? 'animate-icon-bounce' : ''
-                    }`}
-                    style={{ animationDelay: `${index * 0.15 + 0.2}s` }}
+                    className="mb-6 inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-110"
                   >
                     <Icon className="h-8 w-8 md:h-10 md:w-10" />
                   </div>

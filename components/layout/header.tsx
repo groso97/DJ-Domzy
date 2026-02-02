@@ -3,11 +3,14 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "@/components/shared/logo";
 import { navLinks } from "@/config/constants";
 import { cn } from "@/lib/utils";
 
 export function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
@@ -117,10 +120,10 @@ export function Header() {
         }}
       />
 
-      {/* Content */}
+      {/* Content - same layout as main header (content-width, h-20) */}
       <div className="relative h-full w-full flex flex-col z-[101]">
-        {/* Header with Logo and Close Button - same width as page content */}
-        <div className="content-width flex items-center justify-between py-6 md:py-8">
+        {/* Header with Logo and Close Button - same position as main header */}
+        <div className="content-width flex h-20 items-center justify-between">
           <Logo />
           {/* Close Button (X) */}
           <button
@@ -154,24 +157,26 @@ export function Header() {
                     }}
                   >
                     <Link
-                      href={link.href}
+                      href={link.href.startsWith("#") && !isHomePage ? `/${link.href}` : link.href}
                       onClick={(e) => {
                         setIsOpen(false);
-                        // Smooth scroll to anchor if hash link
-                        if (link.href.startsWith('#')) {
+                        // On home: Početna = scroll to top; hash links = scroll to section
+                        if (link.href === "/" && isHomePage) {
+                          e.preventDefault();
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                          setActiveSection("/");
+                          return;
+                        }
+                        if (link.href.startsWith("#") && isHomePage) {
                           e.preventDefault();
                           setTimeout(() => {
                             const element = document.querySelector(link.href);
                             if (element) {
-                              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                              // Update active section after scroll completes
-                              setTimeout(() => {
-                                detectActiveSection();
-                              }, 800);
+                              element.scrollIntoView({ behavior: "smooth", block: "start" });
+                              setTimeout(() => detectActiveSection(), 800);
                             }
                           }, 100);
-                        } else {
-                          // For home link, set active immediately
+                        } else if (link.href === "/") {
                           setActiveSection("/");
                         }
                       }}
@@ -208,33 +213,25 @@ export function Header() {
           <nav className="flex h-20 items-center justify-between">
             <Logo />
 
-            {/* Hamburger Menu Button - Always visible */}
+            {/* Hamburger Menu Button - Always visible, no animation */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="relative w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity z-[110]"
               aria-label={isOpen ? "Zatvori izbornik" : "Otvori izbornik"}
               type="button"
             >
-              <div className="w-6 h-5 relative flex flex-col justify-center">
-                <span 
-                  className={cn(
-                    "absolute w-full h-0.5 bg-white rounded-full transition-all duration-300",
-                    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : "top-0"
-                  )}
-                ></span>
-                <span 
-                  className={cn(
-                    "absolute w-full h-0.5 bg-white rounded-full transition-all duration-300 top-1/2 -translate-y-1/2",
-                    isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
-                  )}
-                ></span>
-                <span 
-                  className={cn(
-                    "absolute w-full h-0.5 bg-white rounded-full transition-all duration-300",
-                    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : "bottom-0"
-                  )}
-                ></span>
-              </div>
+              {isOpen ? (
+                <div className="w-6 h-6 relative">
+                  <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white rounded-full rotate-45 transform -translate-y-1/2"></span>
+                  <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white rounded-full -rotate-45 transform -translate-y-1/2"></span>
+                </div>
+              ) : (
+                <div className="w-6 h-5 relative flex flex-col justify-between">
+                  <span className="w-full h-0.5 bg-white rounded-full"></span>
+                  <span className="w-full h-0.5 bg-white rounded-full"></span>
+                  <span className="w-full h-0.5 bg-white rounded-full"></span>
+                </div>
+              )}
             </button>
           </nav>
         </div>

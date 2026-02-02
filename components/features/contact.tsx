@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
+import Link from "next/link";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { siteConfig } from "@/config/constants";
 
@@ -37,7 +38,7 @@ const eventTypes = [
 const contactCards = [
   { icon: Phone, label: "Telefon", value: siteConfig.contact.phone, href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}` },
   { icon: Mail, label: "Email", value: siteConfig.contact.email, href: `mailto:${siteConfig.contact.email}` },
-  { icon: MapPin, label: "Lokacija", value: "Zagreb i šira okolica", href: null },
+  { icon: MapPin, label: "Lokacija", value: "Zagreb", href: null },
 ];
 
 export function Contact() {
@@ -253,7 +254,14 @@ export function Contact() {
               </Button>
 
               <p className="text-xs text-center text-muted-foreground">
-                Slanjem forme pristajete na obradu vaših podataka u svrhu kontaktiranja.
+                Slanjem obrasca pristajete na našu{" "}
+                <Link
+                  href="/privatnost"
+                  className="text-primary underline underline-offset-2 hover:text-primary/90 transition-colors"
+                >
+                  politiku privatnosti
+                </Link>
+                .
               </p>
             </form>
           </div>

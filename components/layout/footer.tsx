@@ -19,15 +19,15 @@ export function Footer() {
   return (
     <footer className="bg-muted/50 border-t">
       <div className="content-width py-16 md:py-20">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-left">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-center md:text-left">
           {/* Brand */}
-          <div className="space-y-5">
+          <div className="space-y-5 flex flex-col items-center md:items-start">
             <Logo />
             <p className="text-sm md:text-base text-muted-foreground max-w-xs leading-relaxed">
               DJ za nezaboravne događaje. Vjenčanja, rođendani,
               korporativni eventi i klubovi.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-3 justify-center md:justify-start">
               {socialLinks.map((social) => (
                 <Link
                   key={social.label}
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="font-semibold text-xl mb-5">Brze poveznice</h3>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -65,9 +65,9 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="font-semibold text-xl mb-5">Kontakt</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex flex-col items-center md:items-start">
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
@@ -95,7 +95,7 @@ export function Footer() {
 
           
           {/* Legal */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="font-semibold text-xl mb-5">Pravno</h3>
             <ul className="space-y-3">
               <li>

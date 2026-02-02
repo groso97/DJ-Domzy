@@ -52,7 +52,7 @@ export function About() {
                 }`}
                 style={{ animationDelay: '0.2s' }}
               >
-                <span className="text-primary font-semibold">DJ Domza</span> ima više od 5 godina iskustva u nastupima na svadbama, privatnim i korporativnim eventima. Svakom eventu pristupa opušteno, ali profesionalno, s jasnim ciljem – stvoriti odličnu atmosferu u kojoj se svi gosti osjećaju dobro i zabavljaju bez prestanka.
+                <span className="text-muted-foreground">DJ Domza</span> ima više od 5 godina iskustva u nastupima na svadbama, privatnim i korporativnim eventima. Svakom eventu pristupa opušteno, ali profesionalno, s jasnim ciljem – stvoriti odličnu atmosferu u kojoj se svi gosti osjećaju dobro i zabavljaju bez prestanka.
               </p>
 
               <p 
@@ -114,20 +114,19 @@ export function About() {
             </div>
           </div>
 
-          {/* Image Side - right */}
-          <div className="relative group order-1 lg:order-2">
+          {/* Image Side - right (public/dj-domza.png) */}
+          <div className="relative order-1 lg:order-2">
             <div className="relative aspect-4/5 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
               <Image
                 src="/dj-domza.png"
-                alt="DJ Domza"
+                alt="DJ Domza za mikserom u profesionalnoj pozadini"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                priority
+                className="object-cover"
+                priority={false}
+                loading="lazy"
+                quality={85}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#2563EB]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-[#2563EB]/30 rounded-full blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-[#2563EB]/20 rounded-full blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
         </div>
