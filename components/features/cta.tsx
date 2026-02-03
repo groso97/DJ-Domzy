@@ -39,7 +39,7 @@ export function CTA() {
               asChild
               size="xl"
               variant="outline"
-              className="border-white text-white hover:bg-white/10 bg-transparent hover-scale ripple-effect"
+              className="border-white text-white bg-transparent hover:bg-transparent hover:border-primary hover:text-primary [&:hover_svg]:text-primary hover-scale ripple-effect"
             >
               <a
                 href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}

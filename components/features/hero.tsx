@@ -28,17 +28,13 @@ export function Hero() {
           backgroundRepeat: "no-repeat",
         }}
       />
-      {/* Dark overlay for text readability */}
+      {/* Dark overlay #0C0F15 – no blue tint */}
       <div 
         className="absolute inset-0 z-[1]"
         style={{
-          background: "linear-gradient(180deg, rgba(10, 17, 31, 0.75) 0%, rgba(10, 17, 31, 0.85) 50%, rgba(10, 17, 31, 0.95) 100%)",
+          background: "linear-gradient(180deg, rgba(12, 15, 21, 0.82) 0%, rgba(12, 15, 21, 0.90) 50%, rgba(12, 15, 21, 0.96) 100%)",
         }}
       />
-      {/* Subtle blue glow accent */}
-      <div className="absolute inset-0 z-[1] pointer-events-none opacity-40">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#2563EB]/20 to-transparent" />
-      </div>
 
       <div className="content-width relative z-10 text-center mx-auto px-4">
           {/* Main Heading */}
@@ -63,7 +59,12 @@ export function Hero() {
                 Zatraži ponudu
               </a>
             </Button>
-            <Button asChild size="xl" variant="outline" className="ripple-effect hover-scale">
+            <Button
+              asChild
+              size="xl"
+              variant="outline"
+              className="border-white text-white bg-transparent hover:bg-transparent hover:border-primary hover:text-primary [&:hover_svg]:text-primary hover-scale ripple-effect"
+            >
               <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`} className="gap-3 flex items-center">
                 <Phone className="h-5 w-5" />
                 Nazovi odmah
