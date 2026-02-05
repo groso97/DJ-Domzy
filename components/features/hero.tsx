@@ -8,12 +8,12 @@ import { siteConfig } from "@/config/constants";
 
 export function Hero() {
   const statsRef = useRef<HTMLDivElement>(null);
-  const [ref500, isVisible20] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
-  const [ref10, isVisible5] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [ref500, isVisible50] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [ref10, isVisible8] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [ref100, isVisible100] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
-  const count20 = useCounter(isVisible20 ? 20 : 0, 0, { duration: 2000, startDelay: 0 });
-  const count5 = useCounter(isVisible5 ? 5 : 0, 0, { duration: 2000, startDelay: 0 });
+  const count50 = useCounter(isVisible50 ? 50 : 0, 0, { duration: 2000, startDelay: 0 });
+  const count8 = useCounter(isVisible8 ? 8 : 0, 0, { duration: 2000, startDelay: 0 });
   const count100 = useCounter(isVisible100 ? 100 : 0, 0, { duration: 2000, startDelay: 0 });
 
   return (
@@ -75,11 +75,11 @@ export function Hero() {
           {/* Stats - Counter animation */}
           <div ref={statsRef} className="grid grid-cols-3 gap-6 sm:gap-10 mt-16 pt-10 border-t border-white/20 max-w-3xl mx-auto animate-section-reveal" style={{ animationDelay: "0.6s" }}>
             <div ref={ref500 as React.RefObject<HTMLDivElement>} className="text-center">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count20)}+</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count50)}+</div>
               <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Evenata</div>
             </div>
             <div ref={ref10 as React.RefObject<HTMLDivElement>} className="text-center">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count5)}+</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count8)}+</div>
               <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Godina iskustva</div>
             </div>
             <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center">
