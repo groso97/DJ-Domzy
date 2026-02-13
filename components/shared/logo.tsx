@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -8,13 +7,11 @@ interface LogoProps {
 
 export function Logo({ className }: LogoProps) {
   return (
-    <Link
-      href="/"
+    <div
       className={cn(
-        "group flex items-center gap-2 transition-opacity duration-200",
+        "flex items-center gap-2",
         className
       )}
-      aria-label="DJ Domza - Početna"
     >
       <Image
         src="/logo-djdomza.svg"
@@ -24,6 +21,6 @@ export function Logo({ className }: LogoProps) {
         className="h-8 w-auto md:h-10"
         priority
       />
-    </Link>
+    </div>
   );
 }
