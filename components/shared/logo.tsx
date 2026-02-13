@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { Disc3 } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;
-  showText?: boolean;
 }
 
-export function Logo({ className, showText = true }: LogoProps) {
+export function Logo({ className }: LogoProps) {
   return (
     <Link
       href="/"
@@ -17,18 +16,14 @@ export function Logo({ className, showText = true }: LogoProps) {
       )}
       aria-label="DJ Domza - Početna"
     >
-      <div className="relative">
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-secondary opacity-0 blur-lg group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
-          <Disc3 className="h-6 w-6 text-white group-hover:rotate-180 transition-transform duration-500" />
-        </div>
-      </div>
-      {showText && (
-        <span className="text-2xl font-bold tracking-tight">
-          <span className="gradient-text">DJ</span>
-          <span className="text-foreground"> Domza</span>
-        </span>
-      )}
+      <Image
+        src="/logo-djdomza.svg"
+        alt="DJ Domza"
+        width={200}
+        height={40}
+        className="h-8 w-auto md:h-10"
+        priority
+      />
     </Link>
   );
 }
