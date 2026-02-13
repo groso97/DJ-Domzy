@@ -86,6 +86,11 @@ export const metadata: Metadata = {
   verification: {
     google: "verification_token_here",
   },
+  icons: {
+    icon: "/favicon-djdomza.ico",
+    shortcut: "/favicon-djdomza.ico",
+    apple: "/favicon-djdomza.ico",
+  },
 };
 
 export const viewport: Viewport = {
