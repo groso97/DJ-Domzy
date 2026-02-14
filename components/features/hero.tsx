@@ -47,7 +47,7 @@ export function Hero() {
 
           {/* Subheading */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 animate-hero-subtitle leading-relaxed drop-shadow-md">
-            Profesionalni DJ s iskustvom od preko 5 godina. Specijaliziran za
+            Profesionalni DJ s iskustvom od preko 8 godina. Specijaliziran za
             vjenčanja, rođendane, korporativne evente i klubove. 
           </p>
 
