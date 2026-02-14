@@ -52,7 +52,7 @@ export function About() {
                 }`}
                 style={{ animationDelay: '0.2s' }}
               >
-                <span className="text-muted-foreground">DJ Domza</span> ima više od 5 godina iskustva u nastupima na svadbama, privatnim i korporativnim eventima. Svakom eventu pristupa opušteno, ali profesionalno, s jasnim ciljem – stvoriti odličnu atmosferu u kojoj se svi gosti osjećaju dobro i zabavljaju bez prestanka.
+                <span className="text-muted-foreground">DJ Domza</span> ima više od 8 godina iskustva u nastupima na svadbama, privatnim i korporativnim eventima. Svakom eventu pristupa opušteno, ali profesionalno, s jasnim ciljem – stvoriti odličnu atmosferu u kojoj se svi gosti osjećaju dobro i zabavljaju bez prestanka.
               </p>
 
               <p 
