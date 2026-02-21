@@ -41,7 +41,7 @@ export const services = [
   {
     id: "korporativni",
     title: "Korporativni eventi",
-    description: "Nakon uspješnih projekata i dugih sastanaka, vrijeme je za opuštanje i dobru energiju. Nudim profesionalnu glazbenu podršku za korporativne evente, domjenke i proslave – uz savršenu ravnotežu elegancije i zabave. Od ugodne pozadine za networking do rasplesanog after partyja – vaš event ostavlja snažan dojam.",
+    description: "Nakon uspješnih projekata i dugih sastanaka, vrijeme je za opuštanje i dobru energiju. Nudim profesionalnu glazbenu pratnju za korporativne evente, domjenke i proslave – uz savršenu ravnotežu elegancije i zabave. Od ugodne pozadine za networking do rasplesanog after partyja – vaš event ostavlja snažan dojam.",
     icon: "Building2",
   },
   {
