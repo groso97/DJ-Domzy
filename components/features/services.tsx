@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Heart, Cake, Building2, Music4, type LucideIcon } from "lucide-react";
+import { Heart, Cake, Building2, Sparkles, type LucideIcon } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { services } from "@/config/constants";
@@ -11,7 +11,7 @@ export function Services() {
   const [sectionRef, isSectionVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
   return (
-    <section ref={sectionRef} id="usluge" className="py-24 md:py-32">
+    <section ref={sectionRef} id="usluge" className="pt-24 md:pt-32 pb-8 md:pb-12">
       <div className="content-width">
         <SectionHeading
           badge="Usluge"
@@ -60,5 +60,5 @@ const iconMap: Record<string, LucideIcon> = {
   Heart,
   Cake,
   Building2,
-  Music4,
+  Sparkles,
 };

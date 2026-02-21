@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { useIntersectionObserver } from "@/hooks";
 
 const highlights = [
-  { icon: Award, text: "5+ godina profesionalnog iskustva", gradient: "from-primary to-accent" },
+  { icon: Award, text: "8+ godina profesionalnog iskustva", gradient: "from-primary to-accent" },
   { icon: Users, text: "Stalna interakcija s gostima", gradient: "from-accent to-secondary" },
   { icon: Clock, text: "Dinamično vođenje programa", gradient: "from-secondary to-primary" },
   { icon: CheckCircle2, text: "Energično do zadnjeg takta", gradient: "from-primary via-accent to-secondary" },
@@ -17,7 +17,6 @@ const skills = [
   { text: "Vjenčanja & romantične proslave", icon: Heart },
   { text: "Privatni eventi", icon: Sparkles },
   { text: "Korporativni eventi", icon: Users },
-  { text: "Klubska i elektronska glazba", icon: Music2 },
   { text: "Retro & hitovi svih vremena", icon: Clock },
   { text: "Live remixevi i mashupovi", icon: Music2 },
 ];
@@ -52,7 +51,7 @@ export function About() {
                 }`}
                 style={{ animationDelay: '0.2s' }}
               >
-                <span className="text-muted-foreground">DJ Domza</span> ima više od 8 godina iskustva u nastupima na svadbama, privatnim i korporativnim eventima. Svakom eventu pristupa opušteno, ali profesionalno, s jasnim ciljem – stvoriti odličnu atmosferu u kojoj se svi gosti osjećaju dobro i zabavljaju bez prestanka.
+                Moj glazbeni put započeo je još u srednjoškolskim danima, kada se rodila snažna povezanost s DJ pultom i glazbom. Strast sam dodatno usavršio na DJ akademiji (2016.), gdje sam postavio čvrste temelje za profesionalni razvoj i izgradio prepoznatljiv glazbeni pristup.
               </p>
 
               <p 
@@ -61,7 +60,25 @@ export function About() {
                 }`}
                 style={{ animationDelay: '0.4s' }}
               >
-                Kroz stalnu interakciju s gostima i dobar osjećaj za publiku, glazbom povezuje različite generacije i prati energiju večeri u svakom trenutku. Uz sigurno, dinamično i energično vođenje programa, DJ Domza vodi cijelu večer od prve pjesme do zadnjeg takta, držeći plesni podij živim do samog kraja.
+                Prva iskustva stjecao sam u manjim, intimnim okruženjima, gdje sam naučio koliko su detalji presudni – pravi trenutak, osjećaj za publiku i prilagodba svakom tipu događaja. Kako su rasli iskustvo i repertoar, širio se i spektar nastupa, a moj fokus usmjerio se na privatne i korporativne evente, djevojačke i momačke večeri te vjenčanja.
+              </p>
+
+              <p 
+                className={`text-muted-foreground text-base sm:text-lg md:text-xl leading-relaxed ${
+                  isSectionVisible ? 'animate-section-reveal' : 'opacity-0'
+                }`}
+                style={{ animationDelay: '0.6s' }}
+              >
+                Upravo su vjenčanja postala prostor u kojem spajam profesionalnost, energiju i emociju – stvarajući atmosferu koja traje od prvog plesa do posljednjeg takta.
+              </p>
+
+              <p 
+                className={`text-muted-foreground text-base sm:text-lg md:text-xl leading-relaxed ${
+                  isSectionVisible ? 'animate-section-reveal' : 'opacity-0'
+                }`}
+                style={{ animationDelay: '0.8s' }}
+              >
+                Moj cilj je da svaki event ima svoju priču, ritam i energiju koja se pamti dugo nakon što se posljednje svjetlo ugasi.
               </p>
             </div>
 

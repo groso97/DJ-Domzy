@@ -1,5 +1,6 @@
 import { Hero } from "@/components/features/hero";
 import { Services } from "@/components/features/services";
+import { FeaturesCarousel } from "@/components/features/features-carousel";
 import { About } from "@/components/features/about";
 import { Testimonials } from "@/components/features/testimonials";
 import { CTA } from "@/components/features/cta";
@@ -18,6 +19,9 @@ export default function HomePage() {
       <div className="bg-section-solid">
         <Services />
       </div>
+      
+      {/* Features Carousel - Solid background */}
+      <FeaturesCarousel />
       
       {/* About - Party background */}
       <div className="bg-section-party relative">

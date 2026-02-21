@@ -480,6 +480,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: pulse-glow-badge 2s ease-in-out infinite;
 }
 
+/* Neon border glow for feature carousel items */
+@keyframes neon-border-glow {
+  0%, 100% {
+    border-color: rgba(37, 99, 235, 0.6);
+    box-shadow: 
+      0 0 12px rgba(37, 99, 235, 0.4),
+      0 0 24px rgba(37, 99, 235, 0.2),
+      0 0 36px rgba(37, 99, 235, 0.1),
+      inset 0 0 12px rgba(37, 99, 235, 0.1);
+  }
+  50% {
+    border-color: rgba(37, 99, 235, 1);
+    box-shadow: 
+      0 0 20px rgba(37, 99, 235, 0.7),
+      0 0 40px rgba(37, 99, 235, 0.4),
+      0 0 60px rgba(37, 99, 235, 0.2),
+      inset 0 0 20px rgba(37, 99, 235, 0.2);
+  }
+}
+
+.feature-neon-glow {
+  animation: neon-border-glow 2.5s ease-in-out infinite;
+}
+
 /* Glass morphism */
 .glass {
   backdrop-filter: blur(12px);
@@ -1255,6 +1279,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes features-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-features-scroll {
+  animation: features-scroll 30s linear infinite;
+  display: flex;
+  width: fit-content;
 }
 
 @keyframes spin-reverse {

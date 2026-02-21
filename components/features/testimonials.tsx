@@ -32,23 +32,23 @@ export function Testimonials() {
       <div className="content-width">
         <SectionHeading
           badge="Recenzije"
-          title="Što kažu klijenti"
+          title="Što kažu klijenti?"
           subtitle="Recenzije zadovoljnih klijenata su moja najveća nagrada"
           centered={false}
         />
 
-        {/* Carousel - auto only, no arrows. On mobile: 1 card full width; on desktop: 3 cards */}
+        {/* Carousel - auto only, no arrows. On mobile: 1 card full width; on desktop: 2 cards */}
         <div className="relative mt-12 overflow-hidden">
           <div 
-            className="flex w-[300%] md:w-full gap-0 md:gap-6 transition-transform duration-500 ease-in-out"
+            className="flex w-[200%] md:w-full gap-0 md:gap-6 transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+              transform: `translateX(-${currentIndex * (100 / 2)}%)`,
             }}
           >
             {testimonials.map((testimonial, index) => (
               <Card
                 key={testimonial.id}
-                className={`relative shrink-0 flex-[0_0_33.333%] md:flex-[0_0_calc(33.333%-1rem)] md:w-auto ${
+                className={`relative shrink-0 flex-[0_0_50%] md:flex-[0_0_calc(50%-0.75rem)] md:w-auto ${
                   isSectionVisible ? 'animate-carousel-slide' : 'opacity-0'
                 }`}
                 style={{ 
@@ -85,6 +85,11 @@ export function Testimonials() {
                       <div className="text-sm text-muted-foreground">
                         {testimonial.role}
                       </div>
+                      {testimonial.location && testimonial.date && (
+                        <div className="text-sm text-muted-foreground mt-1">
+                          {testimonial.location}, {testimonial.date}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </CardContent>

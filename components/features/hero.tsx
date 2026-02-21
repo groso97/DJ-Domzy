@@ -44,11 +44,9 @@ export function Hero() {
               <span className="gradient-text" style={{ textShadow: "0 2px 20px rgba(37, 99, 235, 0.5)" }}>pokreće emocije</span>
             </span>
           </h1>
-
           {/* Subheading */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 animate-hero-subtitle leading-relaxed drop-shadow-md">
-            Profesionalni DJ s iskustvom od preko 8 godina. Specijaliziran za
-            vjenčanja, rođendane, korporativne evente i klubove. 
+          Vi planirate događaj, ja gradim atmosferu! Sa više od 8 godina iskustva stvaram energiju i glazbenu priču koja vaš event podiže na višu razinu.
           </p>
 
           {/* CTA Buttons - Slide-up animation */}
@@ -84,7 +82,7 @@ export function Hero() {
             </div>
             <div ref={ref100 as React.RefObject<HTMLDivElement>} className="text-center">
               <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-md">{Math.round(count100)}%</div>
-              <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Zadovoljstvo</div>
+              <div className="text-sm sm:text-base md:text-lg text-gray-400 mt-2">Posvećenost</div>
             </div>
           </div>
       </div>
