@@ -64,11 +64,11 @@ export const testimonials = [
   },
   {
     id: 2,
-    name: "Petra K.",
-    role: "Rođendan",
-    location: "Split",
-    date: "15.07.2024",
-    content: "Večer je bila jednostavno nezaboravna zahvaljujući DJ Domzi! Od početka do kraja večeri osjećala sam se kao da sam na najboljem partyju ikad. Glazba je bila savršeno odabrana – od retro hitova koji su podsjetili na moje tinejdžerske dane do najnovijih banger-a koji su rasplesali cijelu ekipu. DJ Domza je stvarno imao osjećaj za publiku i pratio energiju sobe u svakom trenutku. Svi moji prijatelji i obitelj su bili oduševljeni, a ja ću se ovaj dan sjećati još dugo! Hvala ti za savršenu večer!",
+    name: "Sandra & Borna",
+    role: "Božićni domjenak",
+    location: "Rakitje",
+    date: "28.12.2025.",
+    content: "Nakon što nam je bend zbog više sile morao otkazati nastup na Božićnom domjenku, uz preporuku prijatelja angažirali smo DJ Domzu koji je savjesno i susretljivo shvatio našu situaciju, te upotpunio domjenak po našem planu. Prilagodio se maksimalno, odgovorno i sa osmijehom na licu koji se ne zaboravlja. Sve naše kolegice i kolege bili su zadovoljni njegovim repertoarom, najavama i prilagodbi protokolu tijekom večeri. Atmosfera je bila na vrhunskoj razini. Imali smo još jedno nezaboravno prigodno druženje i zabavu. DJ Domzu imamo u vidu za naše prigode koje nam dolaze uz svu preporuku svima.",
     rating: 5,
   },
   {
