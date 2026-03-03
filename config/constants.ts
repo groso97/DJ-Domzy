@@ -73,11 +73,11 @@ export const testimonials = [
   },
   {
     id: 3,
-    name: "Marko Vrdoljak",
-    role: "Rođendan",
-    location: "Zagreb",
-    date: "22.11.2024",
-    content: "Organizirao sam rođendan za svoju ekipu i DJ Domza je bio savršen izbor! Od samog početka komunikacije bio je profesionalan i razumio je što tražim. Na samom eventu pokazao je nevjerojatnu energiju i osjećaj za publiku – znao je kada pustiti hitove koji će rasplesati sve, a kada malo smanjiti tempo. Glazba je bila mješavina svih generacija, što je bilo savršeno jer smo imali goste različitih godina. Cijela večer je bila nezaboravna, a svi su mi komentirali kako je DJ bio odličan. Definitivno ću ga pozvati i za sljedeću proslavu!",
+    name: "Iva Mrakužić",
+    role: "Djevojačka večer",
+    location: "Villa Nikšić, Otočac",
+    date: "27.9.2025.",
+    content: "DJ Domza zna održati energiju, a pritom ostaje nenametljiv, vrlo suradljiv i maksimalno otvoren za dogovore. Dvije sam ga večeri imala priliku slušati na djevojačkim zabavama i svaki put je opravdao očekivanja. Topla preporuka za sve vrste privatnih događanja, bez razmišljanja!",
     rating: 5,
   },
 ] as const;
