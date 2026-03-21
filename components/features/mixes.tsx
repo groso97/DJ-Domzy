@@ -43,7 +43,7 @@ export function Mixes() {
         <SectionHeading
           badge="Mixevi"
           title="DJ Mixevi"
-          subtitle="Kad si već tu, stisni play i uživaj u mixevima. Ovo su odabrani setovi koji daju uvid u atmosferu i energiju na podiju — samo daj play i pusti glazbu da govori."
+          subtitle="Kad si već tu, stisni play i uživaj u mixevima. Ovo su odabrani setovi koji daju uvid u atmosferu i energiju na podiju — samo stisni play i pusti glazbu da govori."
           centered={false}
         />
 
