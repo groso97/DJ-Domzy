@@ -22,12 +22,14 @@ export function Header() {
 
   // Function to detect active section
   const detectActiveSection = React.useCallback(() => {
-    const sections = navLinks
-      .filter(link => link.href.startsWith('#'))
-      .map(link => ({
-        id: link.href.substring(1),
-        href: link.href
-      }));
+    const sections: { id: string; href: (typeof navLinks)[number]["href"] }[] = [];
+    for (const link of navLinks) {
+      const hashIndex = link.href.indexOf("#");
+      if (hashIndex === -1) continue;
+      const id = link.href.slice(hashIndex + 1);
+      if (!id) continue;
+      sections.push({ id, href: link.href });
+    }
     
     // Check if we're at the top (home)
     if (window.scrollY < 200) {
@@ -157,7 +159,7 @@ export function Header() {
                     }}
                   >
                     <Link
-                      href={link.href.startsWith("#") && !isHomePage ? `/${link.href}` : link.href}
+                      href={link.href}
                       onClick={(e) => {
                         setIsOpen(false);
                         // On home: Početna = scroll to top; hash links = scroll to section
@@ -167,12 +169,22 @@ export function Header() {
                           setActiveSection("/");
                           return;
                         }
-                        if (link.href.startsWith("#") && isHomePage) {
+                        const hashIndex = link.href.indexOf("#");
+                        if (hashIndex !== -1 && isHomePage) {
                           e.preventDefault();
+                          const id = link.href.slice(hashIndex + 1);
+                          const headerOffset = 96;
                           setTimeout(() => {
-                            const element = document.querySelector(link.href);
+                            const element = document.getElementById(id);
                             if (element) {
-                              element.scrollIntoView({ behavior: "smooth", block: "start" });
+                              const top =
+                                element.getBoundingClientRect().top +
+                                window.scrollY -
+                                headerOffset;
+                              window.scrollTo({
+                                top: Math.max(0, top),
+                                behavior: "smooth",
+                              });
                               setTimeout(() => detectActiveSection(), 800);
                             }
                           }, 100);

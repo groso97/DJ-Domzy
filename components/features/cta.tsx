@@ -30,7 +30,7 @@ export function CTA() {
               variant="outline"
               className="border-primary text-primary hover:bg-primary/10 bg-transparent hover-scale ripple-effect"
             >
-              <Link href="#kontakt" className="gap-3">
+              <Link href="/#kontakt" className="gap-3">
                 <Calendar className="h-5 w-5" />
                 Zatraži ponudu
               </Link>

@@ -52,7 +52,7 @@ export function Hero() {
           {/* CTA Buttons - Slide-up animation */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-hero-button">
             <Button asChild size="xl" variant="glow" className="ripple-effect hover-scale">
-              <a href="#kontakt" className="gap-3 flex items-center">
+              <a href="/#kontakt" className="gap-3 flex items-center">
                 <Calendar className="h-5 w-5" />
                 Zatraži ponudu
               </a>

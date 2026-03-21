@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CookieBanner } from "@/components/shared/cookie-banner";
+import { HashScroll } from "@/components/shared/hash-scroll";
 import { siteConfig } from "@/config/constants";
 import "./globals.css";
 
@@ -174,6 +175,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <div className="relative flex min-h-screen flex-col">
+          <HashScroll />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

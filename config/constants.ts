@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "DJ Domza",
-  description: "DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
+  description:
+    "DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza-eventi.hr",
   ogImage: "/og-image.jpg",
   links: {
@@ -20,34 +21,39 @@ export const COOKIE_CONSENT_KEY = "djdomza-cookie-notice-seen";
 
 export const navLinks = [
   { href: "/", label: "Početna" },
-  { href: "#usluge", label: "Usluge" },
-  { href: "#o-meni", label: "O meni" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "/#usluge", label: "Usluge" },
+  { href: "/#mixevi", label: "Mixevi" },
+  { href: "/#o-meni", label: "O meni" },
+  { href: "/#kontakt", label: "Kontakt" },
 ] as const;
 
 export const services = [
   {
     id: "vjencanja",
     title: "Vjenčanja",
-    description: "Vaš najvažniji dan zaslužuje savršenu glazbenu kulisu – od prvog plesa do zadnje pjesme na podiju. Individualan pristup, pažljivo odabrana glazba i vrhunska oprema garantiraju atmosferu koju će vaši gosti pamtiti. Vi slavite ljubav, a ja se brinem da plesni podij bude pun do samog kraja.",
+    description:
+      "Vaš najvažniji dan zaslužuje savršenu glazbenu kulisu – od prvog plesa do zadnje pjesme na podiju. Individualan pristup, pažljivo odabrana glazba i vrhunska oprema garantiraju atmosferu koju će vaši gosti pamtiti. Vi slavite ljubav, a ja se brinem da plesni podij bude pun do samog kraja.",
     icon: "Heart",
   },
   {
     id: "rodendani",
     title: "Rođendani",
-    description: "Bilo da slavite 18., 30., 40. ili veliki jubilej – atmosfera se prilagođava vama i vašoj ekipi. Od bezvremenskih klasika do aktualnih hitova, podij se puni od prve minute. Vi slavite godine i uspomene, a ja se brinem da zabava traje do zadnje sekunde.",
+    description:
+      "Bilo da slavite 18., 30., 40. ili veliki jubilej – atmosfera se prilagođava vama i vašoj ekipi. Od bezvremenskih klasika do aktualnih hitova, podij se puni od prve minute. Vi slavite godine i uspomene, a ja se brinem da zabava traje do zadnje sekunde.",
     icon: "Cake",
   },
   {
     id: "korporativni",
     title: "Korporativni eventi",
-    description: "Nakon uspješnih projekata i dugih sastanaka, vrijeme je za opuštanje i dobru energiju. Nudim profesionalnu glazbenu pratnju za korporativne evente, domjenke i proslave – uz savršenu ravnotežu elegancije i zabave. Od ugodne pozadine za networking do rasplesanog after partyja – vaš event ostavlja snažan dojam.",
+    description:
+      "Nakon uspješnih projekata i dugih sastanaka, vrijeme je za opuštanje i dobru energiju. Nudim profesionalnu glazbenu pratnju za korporativne evente, domjenke i proslave – uz savršenu ravnotežu elegancije i zabave. Od ugodne pozadine za networking do rasplesanog after partyja – vaš event ostavlja snažan dojam.",
     icon: "Building2",
   },
   {
     id: "klubovi",
     title: "Djevojačke i momačke večeri",
-    description: "Zadnji \"dan slobode\" zaslužuje večer koja se pamti. Najveći hitovi, klasici i party bangeri podižu atmosferu do maksimuma. Vi ludujete bez kočnica, a ja se brinem da podij gori do jutra.",
+    description:
+      'Zadnji "dan slobode" zaslužuje večer koja se pamti. Najveći hitovi, klasici i party bangeri podižu atmosferu do maksimuma. Vi ludujete bez kočnica, a ja se brinem da podij gori do jutra.',
     icon: "Sparkles",
   },
 ] as const;
@@ -59,7 +65,8 @@ export const testimonials = [
     role: "Direktorica",
     location: "Veliko polje",
     date: "19.12.2025",
-    content: "DJ Domza bio je odličan izbor za naš božićni poslovni domjenak! Glazbeni program prilagodio je našim smjernicama, ali i željama zaposlenika, pritom vješto održavajući balans koji je bio potreban da se večer održi na visokoj razini. Izuzetno vedar, angažiran i profesionalan, DJ Domagoj dobio je jednoglasne pohvale naših zaposlenika, a mi ćemo ga bez sumnje ponovno angažirati za buduće događaje i sa punim povjerenjem ga preporučujemo!",
+    content:
+      "DJ Domza bio je odličan izbor za naš božićni poslovni domjenak! Glazbeni program prilagodio je našim smjernicama, ali i željama zaposlenika, pritom vješto održavajući balans koji je bio potreban da se večer održi na visokoj razini. Izuzetno vedar, angažiran i profesionalan, DJ Domagoj dobio je jednoglasne pohvale naših zaposlenika, a mi ćemo ga bez sumnje ponovno angažirati za buduće događaje i sa punim povjerenjem ga preporučujemo!",
     rating: 5,
   },
   {
@@ -68,7 +75,8 @@ export const testimonials = [
     role: "Božićni domjenak",
     location: "Rakitje",
     date: "28.12.2025.",
-    content: "Nakon što nam je bend zbog više sile morao otkazati nastup na Božićnom domjenku, uz preporuku prijatelja angažirali smo DJ Domzu koji je savjesno i susretljivo shvatio našu situaciju, te upotpunio domjenak po našem planu. Prilagodio se maksimalno, odgovorno i sa osmijehom na licu koji se ne zaboravlja. Sve naše kolegice i kolege bili su zadovoljni njegovim repertoarom, najavama i prilagodbi protokolu tijekom večeri. Atmosfera je bila na vrhunskoj razini. Imali smo još jedno nezaboravno prigodno druženje i zabavu. DJ Domzu imamo u vidu za naše prigode koje nam dolaze uz svu preporuku svima.",
+    content:
+      "Nakon što nam je bend zbog više sile morao otkazati nastup na Božićnom domjenku, uz preporuku prijatelja angažirali smo DJ Domzu koji je savjesno i susretljivo shvatio našu situaciju, te upotpunio domjenak po našem planu. Prilagodio se maksimalno, odgovorno i sa osmijehom na licu koji se ne zaboravlja. Sve naše kolegice i kolege bili su zadovoljni njegovim repertoarom, najavama i prilagodbi protokolu tijekom večeri. Atmosfera je bila na vrhunskoj razini. Imali smo još jedno nezaboravno prigodno druženje i zabavu. DJ Domzu imamo u vidu za naše prigode koje nam dolaze uz svu preporuku svima.",
     rating: 5,
   },
   {
@@ -77,7 +85,8 @@ export const testimonials = [
     role: "Djevojačka večer",
     location: "Villa Nikšić, Otočac",
     date: "27.9.2025.",
-    content: "DJ Domza zna održati energiju, a pritom ostaje nenametljiv, vrlo suradljiv i maksimalno otvoren za dogovore. Dvije sam ga večeri imala priliku slušati na djevojačkim zabavama i svaki put je opravdao očekivanja. Topla preporuka za sve vrste privatnih događanja, bez razmišljanja!",
+    content:
+      "DJ Domza zna održati energiju, a pritom ostaje nenametljiv, vrlo suradljiv i maksimalno otvoren za dogovore. Dvije sam ga večeri imala priliku slušati na djevojačkim zabavama i svaki put je opravdao očekivanja. Topla preporuka za sve vrste privatnih događanja, bez razmišljanja!",
     rating: 5,
   },
 ] as const;

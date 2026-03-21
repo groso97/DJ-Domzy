@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { HashLink } from "@/components/shared/hash-link";
 import { Logo } from "@/components/shared/logo";
 import { WhatsAppIcon } from "@/components/shared/whatsapp-icon";
 import { siteConfig, navLinks } from "@/config/constants";
@@ -53,12 +54,12 @@ export function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <HashLink
                     href={link.href}
                     className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </HashLink>
                 </li>
               ))}
             </ul>
