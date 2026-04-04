@@ -89,4 +89,14 @@ export const testimonials = [
       "DJ Domza zna održati energiju, a pritom ostaje nenametljiv, vrlo suradljiv i maksimalno otvoren za dogovore. Dvije sam ga večeri imala priliku slušati na djevojačkim zabavama i svaki put je opravdao očekivanja. Topla preporuka za sve vrste privatnih događanja, bez razmišljanja!",
     rating: 5,
   },
+  {
+    id: 4,
+    name: "Lina & Bruno",
+    role: "Vjenčanje",
+    location: "Clubhouse golf restoran",
+    date: "5.9.2025.",
+    content:
+      "Domagoj je odlično vodio atmosferu tijekom cijele večeri i gosti su se stvarno zabavili. Prije svega divna je osoba i komunikacija s njim je bila ugodna i profesionalna, a sve je teklo glatko i bez stresa. Svakako ga preporučujem za sve privatne evente!",
+    rating: 5,
+  },
 ] as const;

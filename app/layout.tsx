@@ -89,9 +89,9 @@ export const metadata: Metadata = {
     google: "verification_token_here",
   },
   icons: {
-    icon: "/favicon-djdomza.ico",
-    shortcut: "/favicon-djdomza.ico",
-    apple: "/favicon-djdomza.ico",
+    icon: "/favicon-dj-domza.ico",
+    shortcut: "/favicon-dj-domza.ico",
+    apple: "/favicon-dj-domza.ico",
   },
 };
 
