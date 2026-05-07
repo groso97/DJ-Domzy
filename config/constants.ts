@@ -99,4 +99,14 @@ export const testimonials = [
       "Domagoj je odlično vodio atmosferu tijekom cijele večeri i gosti su se stvarno zabavili. Prije svega divna je osoba i komunikacija s njim je bila ugodna i profesionalna, a sve je teklo glatko i bez stresa. Svakako ga preporučujem za sve privatne evente!",
     rating: 5,
   },
+  {
+    id: 5,
+    name: "Barbara Štrucelj",
+    role: "Djevojačka večer",
+    location: "Country House, Duga Resa",
+    date: "2.5.2026.",
+    content:
+      "Nakon par djevojačkih na kojima me oduševio, znala sam da ga moram imati na svojoj! Muzika top, on kao osoba još bolji. Ispunjavao nam je sve želje i davao mikrofon da pjevamo, što je atmosferu dovelo do ludila. Ako želite najbolji tulum, on je taj! Čista desetka",
+    rating: 5,
+  },
 ] as const;
