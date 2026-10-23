@@ -1,3 +1,5 @@
+import type { Testimonial } from "@/types";
+
 export const siteConfig = {
   name: "DJ Domza",
   description:
@@ -24,7 +26,41 @@ export const navLinks = [
   { href: "/#usluge", label: "Usluge" },
   { href: "/#mixevi", label: "Mixevi" },
   { href: "/#o-meni", label: "O meni" },
+  { href: "/#galerija", label: "Galerija" },
   { href: "/#kontakt", label: "Kontakt" },
+] as const;
+
+export const galleryImages = [
+  {
+    src: "/gallery/dj-domza-mikrofon.jpg",
+    alt: "DJ Domza s mikrofonom uz zvučnik na događaju",
+    width: 1600,
+    height: 1068,
+  },
+  {
+    src: "/gallery/dj-domza-pult.jpg",
+    alt: "DJ Domza za pultom tijekom nastupa",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    src: "/gallery/dj-domza-adventski-event.jpg",
+    alt: "DJ Domza na nastupu na otvorenom među božićnim svjetlima",
+    width: 737,
+    height: 980,
+  },
+  {
+    src: "/gallery/dj-domza-pioneer.jpg",
+    alt: "DJ Domza za Pioneer DJ opremom",
+    width: 1536,
+    height: 2048,
+  },
+  {
+    src: "/gallery/dj-domza-nastup.jpg",
+    alt: "DJ Domza u odijelu i slušalicama za pultom",
+    width: 1366,
+    height: 2048,
+  },
 ] as const;
 
 export const services = [
@@ -58,7 +94,7 @@ export const services = [
   },
 ] as const;
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Marina Mihoković Dvorski",
@@ -109,4 +145,12 @@ export const testimonials = [
       "Nakon par djevojačkih na kojima me oduševio, znala sam da ga moram imati na svojoj! Muzika top, on kao osoba još bolji. Ispunjavao nam je sve želje i davao mikrofon da pjevamo, što je atmosferu dovelo do ludila. Ako želite najbolji tulum, on je taj! Čista desetka",
     rating: 5,
   },
-] as const;
+  {
+    id: 6,
+    name: "Viktorija Vancas",
+    role: "Rođendan",
+    content:
+      "Sve pohvale za DJ Domagoja, divan i pristojan mladi čovjek koji zna i voli svoj posao. Hvala ti za veseli ugođaj na mojem ročkasu!",
+    rating: 5,
+  },
+];
