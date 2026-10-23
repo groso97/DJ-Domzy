@@ -367,6 +367,18 @@ body::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
 }
 
+/* Pointer cursor on everything clickable (Tailwind v4 preflight resets buttons to default) */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+[role="option"],
+summary,
+input[type="submit"]:not(:disabled),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+label[for] {
+  cursor: pointer;
+}
+
 /* Date input calendar icon - white on dark background */
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);

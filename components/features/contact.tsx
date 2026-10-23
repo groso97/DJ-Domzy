@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
+import { DatePicker } from "@/components/ui/date-picker";
 import Link from "next/link";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { siteConfig } from "@/config/constants";
@@ -46,6 +47,7 @@ export function Contact() {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
@@ -53,6 +55,7 @@ export function Contact() {
     resolver: zodResolver(contactSchema),
     defaultValues: {
       eventType: "",
+      eventDate: "",
     },
   });
 
@@ -198,22 +201,42 @@ export function Contact() {
 
                 <div className="space-y-2">
                   <Label htmlFor="eventDate">Datum događaja</Label>
-                  <Input
-                    id="eventDate"
-                    type="date"
-                    {...register("eventDate")}
+                  <Controller
+                    name="eventDate"
+                    control={control}
+                    render={({ field }) => (
+                      <DatePicker
+                        id="eventDate"
+                        name={field.name}
+                        ref={field.ref}
+                        value={field.value ?? ""}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        placeholder="dd.mm.gggg."
+                      />
+                    )}
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="eventType">Vrsta događaja *</Label>
-                <Select
-                  id="eventType"
-                  options={eventTypes}
-                  placeholder="Odaberite vrstu događaja"
-                  {...register("eventType")}
-                  aria-invalid={!!errors.eventType}
+                <Controller
+                  name="eventType"
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      id="eventType"
+                      name={field.name}
+                      ref={field.ref}
+                      value={field.value}
+                      onChange={field.onChange}
+                      onBlur={field.onBlur}
+                      options={eventTypes}
+                      placeholder="Odaberite vrstu događaja"
+                      aria-invalid={!!errors.eventType}
+                    />
+                  )}
                 />
                 {errors.eventType && (
                   <p className="text-sm text-destructive">{errors.eventType.message}</p>
