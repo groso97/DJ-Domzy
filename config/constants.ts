@@ -153,4 +153,12 @@ export const testimonials: Testimonial[] = [
       "Sve pohvale za DJ Domagoja, divan i pristojan mladi čovjek koji zna i voli svoj posao. Hvala ti za veseli ugođaj na mojem ročkasu!",
     rating: 5,
   },
+  {
+    id: 7,
+    name: "Martina Marić",
+    role: "Djevojačka večer",
+    content:
+      "Sve preporuke za DJ Domzu, decko je odradio vrhunski posao! Svirao nam je djevojacku, mi cure smo sve bile prezadovoljne. Napravio je stvarno odlicnu atmosferu, pustao pjesme po dogovoru, miksao sve-spojivo i ne spojivo. Vrlo jednostavan za dogovor. 10/10 😊🤩",
+    rating: 5,
+  },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import { HashLink } from "@/components/shared/hash-link";
 import { Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/constants";
@@ -30,10 +30,10 @@ export function CTA() {
               variant="outline"
               className="border-primary text-primary hover:bg-primary/10 bg-transparent hover-scale ripple-effect"
             >
-              <Link href="/#kontakt" className="gap-3">
+              <HashLink href="/#kontakt" className="gap-3">
                 <Calendar className="h-5 w-5" />
                 Zatraži ponudu
-              </Link>
+              </HashLink>
             </Button>
             <Button
               asChild

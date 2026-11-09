@@ -9,14 +9,14 @@ const mixes = [
     id: "domaci-party-hitovi",
     title: "Domaći party hitovi",
     description:
-      "Selekcija domaćih hitova koja garantira vrhunsku atmosferu. U mixu sam povezao izvođače zabavne glazbe kao što su Petar Grašo, Zdravko Ćolić, Severina, Maja Šuput, Jelena Rozga, Bijelo Dugme i Đorđe Balašević. Miks je idealan za svadbe, proslave i sve evente gdje energija ne prestaje.",
+      "Selekcija domaćih hitova koja garantira vrhunsku atmosferu. U miksu sam povezao izvođače zabavne glazbe koja je idealna za vjenčanja i ostale proslave kako bi se održala dobra energija na podiju.",
     src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288033135&color=%232361ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
   },
   {
     id: "all-time-hits-house",
     title: "All time hits — House edition",
     description:
-      "Savršena kombinacija bezvremenskih stranih hitova i modernog house zvuka koji garantira pun podij. U ovom mixu spajam izvođače kao što su Rihanna, Usher, Bon Jovi, Modjo i ostali.",
+      "Savršena kombinacija bezvremenskih stranih hitova i modernog house zvuka.",
     src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288031467&color=%232361ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
   },
 ] as const;

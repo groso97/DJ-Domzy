@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { CheckCircle2, Award, Users, Clock, Sparkles, Music2, Heart } from "lucide-react";
+import { CheckCircle2, Award, Users, Clock, Sparkles, Music2, Heart, TreePine } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { useIntersectionObserver } from "@/hooks";
 
@@ -17,6 +17,7 @@ const skills = [
   { text: "Vjenčanja & romantične proslave", icon: Heart },
   { text: "Privatni eventi", icon: Sparkles },
   { text: "Korporativni eventi", icon: Users },
+  { text: "Božićni domjenci", icon: TreePine },
   { text: "Retro & hitovi svih vremena", icon: Clock },
   { text: "Live remixevi i mashupovi", icon: Music2 },
 ];
@@ -60,14 +61,32 @@ export function About() {
                 }`}
                 style={{ animationDelay: '0.4s' }}
               >
-                Prva iskustva stjecao sam u manjim, intimnim okruženjima, gdje sam naučio koliko su detalji presudni – pravi trenutak, osjećaj za publiku i prilagodba svakom tipu događaja. Kako su rasli iskustvo i repertoar, širio se i spektar nastupa, a moj fokus usmjerio se na privatne i korporativne evente, djevojačke i momačke večeri te vjenčanja.
+                Prva iskustva stjecao sam u manjim, intimnim okruženjima, gdje sam naučio koliko su detalji presudni – pravi trenutak, osjećaj za publiku i prilagodba svakom tipu događaja.
               </p>
 
-              <p 
+              <p
+                className={`text-muted-foreground text-base sm:text-lg md:text-xl leading-relaxed ${
+                  isSectionVisible ? 'animate-section-reveal' : 'opacity-0'
+                }`}
+                style={{ animationDelay: '0.5s' }}
+              >
+                Danas sam član DJ agencije Resident Events, koja pod vodstvom DJ Shake okuplja iskusne DJ-eve, a svoje sam iskustvo dodatno obogatio nastupima u klubu Makina u Vodicama tijekom ljetne sezone. Rad u profesionalnom okruženju i nastupi pred različitom publikom dodatno su oblikovali moj glazbeni pristup i osjećaj za stvaranje prave atmosfere.
+              </p>
+
+              <p
                 className={`text-muted-foreground text-base sm:text-lg md:text-xl leading-relaxed ${
                   isSectionVisible ? 'animate-section-reveal' : 'opacity-0'
                 }`}
                 style={{ animationDelay: '0.6s' }}
+              >
+                Danas je moj fokus usmjeren na privatne i korporativne evente, djevojačke i momačke večeri te vjenčanja.
+              </p>
+
+              <p
+                className={`text-muted-foreground text-base sm:text-lg md:text-xl leading-relaxed ${
+                  isSectionVisible ? 'animate-section-reveal' : 'opacity-0'
+                }`}
+                style={{ animationDelay: '0.7s' }}
               >
                 Upravo su vjenčanja postala prostor u kojem spajam profesionalnost, energiju i emociju – stvarajući atmosferu koja traje od prvog plesa do posljednjeg takta.
               </p>

@@ -66,7 +66,7 @@ export default function TermsPage() {
       <h2>4. Cijene</h2>
       <p>
         Cijene ovise o vrsti događaja, trajanju, lokaciji, opremi i dodatnim zahtjevima. Konačna
-        cijena bit će navedena u ponudi. Sve cijene su u kunama i uključuju PDV ako je obrt
+        cijena bit će navedena u ponudi. Sve cijene su u eurima (EUR) i uključuju PDV ako je obrt
         obveznik PDV-a u skladu s važećim propisima.
       </p>
 

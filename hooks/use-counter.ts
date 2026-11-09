@@ -19,18 +19,14 @@ export function useCounter(
     duration = 2000,
     startDelay = 0,
     decimals = 0,
-    suffix = "",
-    prefix = "",
   } = options;
 
   const [count, setCount] = useState(start);
-  const [isAnimating, setIsAnimating] = useState(false);
   const frameRef = useRef<number | undefined>(undefined);
   const startTimeRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setIsAnimating(true);
       startTimeRef.current = Date.now();
 
       const animate = () => {
@@ -48,7 +44,6 @@ export function useCounter(
           frameRef.current = requestAnimationFrame(animate);
         } else {
           setCount(end);
-          setIsAnimating(false);
         }
       };
 

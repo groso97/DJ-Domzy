@@ -1,5 +1,6 @@
 import { Hero } from "@/components/features/hero";
 import { Services } from "@/components/features/services";
+import { Pricing } from "@/components/features/pricing";
 import { Mixes } from "@/components/features/mixes";
 import { FeaturesCarousel } from "@/components/features/features-carousel";
 import { About } from "@/components/features/about";
@@ -20,6 +21,7 @@ export default function HomePage() {
       {/* Services - Solid background */}
       <div className="bg-section-solid">
         <Services />
+        <Pricing />
       </div>
       
       {/* Mixes - Party background */}

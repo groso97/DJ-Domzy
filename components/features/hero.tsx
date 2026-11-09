@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import { HashLink } from "@/components/shared/hash-link";
 import { Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCounter, useIntersectionObserver } from "@/hooks";
@@ -52,10 +53,10 @@ export function Hero() {
           {/* CTA Buttons - Slide-up animation */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-hero-button">
             <Button asChild size="xl" variant="glow" className="ripple-effect hover-scale">
-              <a href="/#kontakt" className="gap-3 flex items-center">
+              <HashLink href="/#kontakt" className="gap-3 flex items-center">
                 <Calendar className="h-5 w-5" />
                 Zatraži ponudu
-              </a>
+              </HashLink>
             </Button>
             <Button
               asChild
