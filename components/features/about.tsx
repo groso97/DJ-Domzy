@@ -150,11 +150,11 @@ export function About() {
             </div>
           </div>
 
-          {/* Image Side - right (public/dj-domza.png) */}
+          {/* Image Side - right (public/dj-domza.webp) */}
           <div className="relative order-1 lg:order-2">
             <div className="relative aspect-4/5 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
               <Image
-                src="/dj-domza.png"
+                src="/dj-domza.webp"
                 alt="DJ Domza za mikserom u profesionalnoj pozadini"
                 fill
                 className="object-cover"
