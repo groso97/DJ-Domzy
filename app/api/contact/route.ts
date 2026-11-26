@@ -10,17 +10,52 @@ const contactSchema = z.object({
   phone: z.string().optional(),
   eventType: z.string().min(1, "Odaberite vrstu događaja"),
   eventDate: z.string().optional(),
-  message: z.string().min(10, "Poruka mora imati najmanje 10 znakova"),
+  message: z.string().max(5000, "Poruka može imati najviše 5000 znakova").optional(),
+  attribution: z.record(z.string().max(500)).optional(),
 });
 
 const eventTypeLabels: Record<string, string> = {
   vjencanje: "Vjenčanje",
   rodendan: "Rođendan",
   korporativni: "Korporativni event",
+  "djevojacka-momacka": "Djevojačka / momačka večer",
   klub: "Klub / Festival",
   "privatna-zabava": "Privatna zabava",
   ostalo: "Ostalo",
 };
+
+/** Escapes user-supplied text before it is placed into the HTML email. */
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/** Human-readable "where did this enquiry come from" line (plain text, escaped by the caller). */
+function buildSourceText(attribution?: Record<string, string>) {
+  const a = attribution ?? {};
+  const clickId = a.gclid
+    ? `gclid: ${a.gclid}`
+    : a.gbraid
+      ? `gbraid: ${a.gbraid}`
+      : a.wbraid
+        ? `wbraid: ${a.wbraid}`
+        : "";
+  const fromAds = Boolean(clickId) || a.utm_medium === "cpc";
+
+  const parts: string[] = [];
+  if (fromAds) parts.push("Google Ads");
+  else if (a.utm_source) parts.push(a.utm_medium ? `${a.utm_source} / ${a.utm_medium}` : a.utm_source);
+  if (a.utm_campaign) parts.push(`kampanja: ${a.utm_campaign}`);
+  if (a.utm_term) parts.push(`ključna riječ: ${a.utm_term}`);
+  if (clickId) parts.push(clickId);
+  if (a.landing_page) parts.push(`ulazna stranica: ${a.landing_page}`);
+
+  return parts.length ? parts.join(" · ") : "Direktno / organski";
+}
 
 function buildEmailHtml(data: {
   name: string;
@@ -28,10 +63,18 @@ function buildEmailHtml(data: {
   phone?: string;
   eventType: string;
   eventDate?: string;
-  message: string;
+  message?: string;
+  attribution?: Record<string, string>;
 }) {
-  const { name, email, phone, eventType, eventDate, message } = data;
-  const eventLabel = eventTypeLabels[eventType] || eventType;
+  const { name, email, phone, eventType, eventDate, message, attribution } = data;
+
+  const eventLabel = escapeHtml(eventTypeLabels[eventType] || eventType);
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safePhone = phone ? escapeHtml(phone) : "";
+  const safeDate = eventDate ? escapeHtml(eventDate) : "";
+  const safeMessage = message ? escapeHtml(message).replace(/\r?\n/g, "<br>") : "";
+  const sourceText = escapeHtml(buildSourceText(attribution));
 
   return `
 <!DOCTYPE html>
@@ -60,20 +103,20 @@ function buildEmailHtml(data: {
                 <tr>
                   <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                     <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Ime i prezime</span>
-                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${name}</p>
+                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${safeName}</p>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                     <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Email</span>
-                    <p style="margin: 4px 0 0; font-size: 16px;"><a href="mailto:${email}" style="color: #60A5FA; text-decoration: none;">${email}</a></p>
+                    <p style="margin: 4px 0 0; font-size: 16px;"><a href="mailto:${safeEmail}" style="color: #60A5FA; text-decoration: none;">${safeEmail}</a></p>
                   </td>
                 </tr>
-                ${phone ? `
+                ${safePhone ? `
                 <tr>
                   <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                     <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Telefon</span>
-                    <p style="margin: 4px 0 0; font-size: 16px;"><a href="tel:${phone}" style="color: #60A5FA; text-decoration: none;">${phone}</a></p>
+                    <p style="margin: 4px 0 0; font-size: 16px;"><a href="tel:${safePhone}" style="color: #60A5FA; text-decoration: none;">${safePhone}</a></p>
                   </td>
                 </tr>
                 ` : ""}
@@ -83,20 +126,28 @@ function buildEmailHtml(data: {
                     <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${eventLabel}</p>
                   </td>
                 </tr>
-                ${eventDate ? `
+                ${safeDate ? `
                 <tr>
                   <td style="padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                     <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Datum događaja</span>
-                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${eventDate}</p>
+                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 500; color: #f1f5f9;">${safeDate}</p>
+                  </td>
+                </tr>
+                ` : ""}
+                ${safeMessage ? `
+                <tr>
+                  <td style="padding: 16px 0 0;">
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Poruka</span>
+                    <div style="margin-top: 8px; padding: 16px; background: rgba(37, 99, 235, 0.08); border-radius: 10px; border-left: 3px solid #2563EB;">
+                      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #cbd5e1;">${safeMessage}</p>
+                    </div>
                   </td>
                 </tr>
                 ` : ""}
                 <tr>
                   <td style="padding: 16px 0 0;">
-                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Poruka</span>
-                    <div style="margin-top: 8px; padding: 16px; background: rgba(37, 99, 235, 0.08); border-radius: 10px; border-left: 3px solid #2563EB;">
-                      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #cbd5e1;">${message.replace(/\n/g, "<br>")}</p>
-                    </div>
+                    <span style="font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Izvor upita</span>
+                    <p style="margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #94A3B8; word-break: break-all;">${sourceText}</p>
                   </td>
                 </tr>
               </table>
@@ -121,7 +172,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validatedData = contactSchema.parse(body);
 
-    const { name, email, phone, eventType, eventDate, message } = validatedData;
+    const { name, email, phone, eventType, eventDate, message, attribution } = validatedData;
 
     const emailContent = buildEmailHtml({
       name,
@@ -130,6 +181,7 @@ export async function POST(request: NextRequest) {
       eventType,
       eventDate,
       message,
+      attribution,
     });
 
     const eventLabel = eventTypeLabels[eventType] || eventType;
@@ -137,7 +189,8 @@ export async function POST(request: NextRequest) {
       from: "DJ Domza <noreply@djdomza-eventi.hr>",
       to: process.env.CONTACT_TO_EMAIL || "booking@djdomza-eventi.hr",
       replyTo: email,
-      subject: `Nova poruka od ${name} - ${eventLabel}`,
+      // Strip line breaks from user input so it cannot inject extra header lines
+      subject: `Nova poruka od ${name.replace(/[\r\n]+/g, " ")} - ${eventLabel}`,
       html: emailContent,
     });
 
