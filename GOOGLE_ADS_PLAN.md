@@ -31,6 +31,88 @@
 
 ---
 
+## STATUS (ažurirano 26.11.2026.)
+
+Kod je gotov i objavljen na produkciji (PR #1, merge u `master`, Vercel build uspješan). Ostalo je konfiguriranje Googleovih alata i kampanja – to se ne radi u kodu.
+
+### ✅ Napravljeno
+
+**Kod (sekcija 16, faze A–G, sve objavljeno):**
+- [x] Čišćenje: `env.example` bez pravog ključa, `verification` placeholder uklonjen, generirana OG slika (`app/opengraph-image.tsx`), `lint` skripta popravljena (`eslint .`)
+- [x] Privola s tri opcije (Prihvati sve / Odbij / Postavke) + Consent Mode v2 (default `denied` prije GTM-a), gumb "Postavke kolačića" u footeru
+- [x] GTM u layoutu (samo ako je postavljen `NEXT_PUBLIC_GTM_ID`), bez hard-kodiranih ID-eva
+- [x] `generate_lead` u dataLayeru samo kod uspješnog slanja forme (50 EUR, email i telefon za enhanced conversions)
+- [x] gclid / UTM atribucija i blok "Izvor upita" u emailu (provjereno na Previewu s pravim emailom)
+- [x] Forma: poruka neobavezna, nova vrsta događaja "Djevojačka / momačka večer", trust tekst, `escapeHtml` u emailu
+- [x] 4 landing stranice (`/dj-za-vjencanje`, `/dj-za-domjenak`, `/dj-za-rodendan`, `/dj-za-djevojacku-i-momacku`) + FAQ JSON-LD, sitemap, linkovi iz kartica usluga, skrol do forme na istoj stranici
+- [x] Sticky mobilna traka Nazovi / WhatsApp (pojavljuje se nakon odluke o kolačićima)
+- [x] Hero na `next/image`, WebP umjesto 2 MB PNG-a, manja Pioneer fotka, LocalBusiness JSON-LD
+- [x] Nacrt pravnih tekstova `/kolacici` i `/privatnost` (GA4, Google Ads, privola, prijenos u SAD, izvor upita)
+- [x] Testirano: build, lint, tsc, Preview (baner, consent, GTM, landing stranice, sitemap, OG, responzivnost 375/768 px, forma + email)
+
+**Računi i postavke (radio vlasnik):**
+- [x] Resend: novi API ključ u Vercelu (Production/Preview), stranica radi
+- [x] GA4: račun i entitet napravljeni, web stream, data filter "Internal Traffic" postoji (stanje: Testiranje)
+- [x] GTM: spremnik napravljen
+- [x] Google Ads: račun otvoren, plaćanje postavljeno (Hrvatska, zona GMT+01:00)
+- [x] Vercel: `NEXT_PUBLIC_GTM_ID` postavljen (Production + Preview), redeploy napravljen
+
+### ⏳ Ostalo za napraviti (po redu)
+
+**A. Provjeriti odmah (5 min)**
+- [ ] Ads → Kampanje: nema aktivne kampanje (pauzirati ako je Google napravio pametnu)
+- [ ] Ads → Administrator → Postavke računa: valuta **EUR**, **Automatsko označavanje** uključeno
+- [ ] Ads → Naplata: provjeriti što je bio iznos od 10 € (kredit ili rezervacija kartice)
+- [ ] GA4: zapisati **Measurement ID** (`G-…`), Data retention 14 mjeseci
+- [ ] Rotirati/obrisati stari Resend ključ iz git povijesti ako se nađe račun na kojem postoji
+
+**B. Search Console i povezivanje (korak 0.3, 1.5 – oko 1 h)**
+- [ ] Search Console: domena `djdomza-eventi.hr`, DNS TXT verifikacija kod registrara, submit `sitemap.xml`
+- [ ] Provjeriti u Vercelu da `www` preusmjerava na `djdomza-eventi.hr` (Final URL u oglasima bez `www`)
+- [ ] GA4 → Product links: povezati s Google Adsom (personalizirano oglašavanje uključeno)
+- [ ] GA4 → Product links: povezati sa Search Consoleom; Ads → Data manager: Search Console
+- [ ] Google Business Profile: napraviti/verificirati (kategorija DJ, service area Zagreb) i povezati s Adsom (Location asset)
+
+**C. Konverzije u Google Adsu (sekcija 4.4 – oko 1 h)**
+- [ ] 4 konverzije: Upit – kontakt forma (50 €), Klik na telefon (30 €), Klik na WhatsApp (30 €), Klik na email (10 €, sekundarna); Count: One; Click-through window 90 dana; Data-driven
+- [ ] Za svaku zapisati **Conversion ID (`AW-…`) i Conversion Label**
+- [ ] Goals → Settings → Enhanced conversions: ON, metoda Google Tag Manager (+ Enhanced conversions for leads)
+
+**D. GTM konfiguracija (sekcija 4.3 – oko 2 h)**
+- [ ] Varijable: Click URL, Click Text, Page Path; DLV `event_type`, `value`, `user_data.email`, `user_data.phone_number`; User-Provided Data
+- [ ] Triggeri: `CE - generate_lead`, `Click - tel`, `Click - WhatsApp`, `Click - mailto`
+- [ ] Tagovi: Google Tag (GA4 + Ads), Conversion Linker, 4 GA4 eventa (**bez `user_data`**), 4 Ads konverzijska taga (forma uz *Include user-provided data*)
+- [ ] Consent postavke tagova: built-in (ne "No additional consent required")
+- [ ] Tag Assistant QA po checklisti iz sekcije 11, zatim **Submit → Publish**
+- [ ] GA4: `generate_lead` označiti kao Key event; u Adsu primarne samo izravni Ads tagovi (ne uvoziti GA4 key evente kao primarne – dupliranje)
+- [ ] Test na pravom mobitelu (iOS Safari + Android Chrome); u pregledniku isključiti McAfee WebAdvisor pri testiranju
+
+**E. Pravno i tekstovi (prije ili uz pokretanje)**
+- [ ] Pročitati i potvrditi tekstove landing stranica; `TODO(vlasnik)` u `config/landing-pages.ts` (odgovor o nastupima izvan Zagreba i putnim troškovima)
+- [ ] Pravni pregled `/kolacici` i `/privatnost` (uklonjeni `TODO(vlasnik)` komentari nakon pregleda)
+- [ ] Odluka: gclid u `sessionStorage` sprema se i bez privole za oglašavanje – po želji vezati uz privolu
+- [ ] Odluka: `aggregateRating` u JSON-LD (nije dodan bez potvrde)
+
+**F. Kampanje (sekcija 8 – oko 3–4 h)**
+- [ ] Negativna lista na razini računa (8.4)
+- [ ] Kampanje redom: **01 Domjenci** (sezona je sada) + **05 Brand** + **02 Vjenčanja**; kasnije 03 Rođendani i 04 Djevojačke/momačke
+- [ ] Search only, bez Search Partners / Display; lokacija Zagreb + županija + radijus 60–80 km, *Presence*; jezici hr + en
+- [ ] Bidding: Maximize clicks s max CPC 1–1,5 € (faza 1, 8.9)
+- [ ] RSA oglasi (8.5), assets (8.6); tvrdnje samo one koje piše na stranici
+- [ ] Pokretanje 🚀, zatim tjedna optimizacija (sekcija 12)
+
+**G. Kasnije (mjesec 2+)**
+- [ ] Offline import "Rezervacija" (Google Sheets + gclid iz emaila)
+- [ ] Maximize conversions (kad ima 15+ konverzija / 30 dana), remarketing, A/B test landing stranica
+
+### Odstupanja od plana tijekom implementacije
+- Hint "za brži odgovor" stavljen u label polja Telefon (a ne u placeholder) da se ne odrezuje na ~640 px širine.
+- `dj-domza.png` zamijenjen WebP-om (`public/dj-domza.webp`); Pioneer slika smanjena na 1200×1600.
+- `eslint.config.mjs` ignorira `.next`; `lint` skripta je `eslint .`.
+- Landing stranice moraju eksplicitno navesti OG sliku (Next ne nasljeđuje generiranu sliku kad stranica definira vlastiti `openGraph`).
+
+---
+
 ## 1. Analiza trenutnog stanja
 
 ### 1.1 Što je dobro
