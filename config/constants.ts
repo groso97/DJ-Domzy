@@ -6,7 +6,7 @@ export const siteConfig = {
     "DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza-eventi.hr",
   links: {
-    instagram: "https://www.instagram.com/djdomzaeventi?igsh=dWo2OHFvbGRvMXpj",
+    instagram: "https://www.instagram.com/djdomza?igsh=dWo2OHFvbGRvMXpj",
     facebook: "https://facebook.com/djdomza",
     youtube: "https://youtube.com/@djdomza",
     soundcloud: "https://soundcloud.com/djdomza",
