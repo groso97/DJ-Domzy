@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { ComponentProps } from "react";
 
 /** Fixed header is h-20 (80px); extra padding so title clears the bar */
@@ -20,12 +19,13 @@ type HashLinkProps = Omit<ComponentProps<typeof Link>, "href"> & {
 };
 
 /**
- * Same as Next Link, but when already on `/` and href is `/#sectionId`,
- * scrolls to the element instead of relying on default behavior (often a no-op).
+ * Same as Next Link, but for `/#sectionId` hrefs: if the CURRENT page already contains an
+ * element with that id (home page, but also every landing page with its own #kontakt form),
+ * it scrolls there instead of navigating to `/`. Otherwise the normal navigation happens
+ * and HashScroll scrolls after arriving on the home page.
  * Forwards all other props (incl. ref), so it works as a child of `<Button asChild>`.
  */
 export function HashLink({ href, onClick, ...props }: HashLinkProps) {
-  const pathname = usePathname();
   const hashMatch = /^\/#(.+)$/.exec(href);
 
   if (!hashMatch) {
@@ -40,9 +40,10 @@ export function HashLink({ href, onClick, ...props }: HashLinkProps) {
       {...props}
       onClick={(e) => {
         onClick?.(e);
-        if (e.defaultPrevented || pathname !== "/") return;
+        if (e.defaultPrevented) return;
+        if (!document.getElementById(sectionId)) return;
         e.preventDefault();
-        window.history.pushState(null, "", href);
+        window.history.pushState(null, "", `#${sectionId}`);
         scrollToSectionId(sectionId);
       }}
     />

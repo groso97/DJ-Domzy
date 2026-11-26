@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import {
   Heart,
   Cake,
   Building2,
   Sparkles,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -17,6 +19,7 @@ import {
 } from "@/components/ui/card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { services } from "@/config/constants";
+import { landingPages } from "@/config/landing-pages";
 import { useIntersectionObserver } from "@/hooks";
 
 export function Services() {
@@ -64,6 +67,15 @@ export function Services() {
                   <CardDescription className="text-base md:text-lg leading-relaxed">
                     {service.description}
                   </CardDescription>
+                  {serviceLinks[service.id] && (
+                    <Link
+                      href={serviceLinks[service.id]}
+                      className="mt-6 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-primary/80"
+                    >
+                      Saznaj više
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Link>
+                  )}
                 </CardContent>
               </Card>
             );
@@ -73,6 +85,14 @@ export function Services() {
     </section>
   );
 }
+
+/** Service card id -> dedicated landing page */
+const serviceLinks: Record<string, string> = {
+  vjencanja: `/${landingPages.vjencanje.slug}`,
+  korporativni: `/${landingPages.domjenak.slug}`,
+  rodendani: `/${landingPages.rodendan.slug}`,
+  klubovi: `/${landingPages.djevojackaMomacka.slug}`,
+};
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
