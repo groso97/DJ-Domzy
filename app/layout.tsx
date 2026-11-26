@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
@@ -7,8 +8,34 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CookieBanner } from "@/components/shared/cookie-banner";
 import { HashScroll } from "@/components/shared/hash-scroll";
-import { siteConfig } from "@/config/constants";
+import { AttributionCapture } from "@/components/shared/attribution-capture";
+import { MobileCtaBar } from "@/components/shared/mobile-cta-bar";
+import { siteConfig, CONSENT_STORAGE_KEY } from "@/config/constants";
 import "./globals.css";
+
+/**
+ * Google Consent Mode v2 – runs BEFORE GTM loads. Everything is denied by default;
+ * a previously saved decision is restored immediately from localStorage.
+ */
+const consentDefaultScript = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+gtag('set', 'ads_data_redaction', true);
+gtag('set', 'url_passthrough', true);
+try {
+  var saved = JSON.parse(localStorage.getItem('${CONSENT_STORAGE_KEY}') || 'null');
+  if (saved) gtag('consent', 'update', saved);
+} catch (e) {}
+`;
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -58,20 +85,11 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} - Profesionalni DJ za vjenčanja i evente`,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} - Profesionalni DJ`,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} - Profesionalni DJ`,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
     creator: "@djdomzaeventi",
   },
   robots: {
@@ -84,9 +102,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "verification_token_here",
   },
   icons: {
     icon: "/favicon-dj-domza.ico",
@@ -108,7 +123,7 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MusicGroup",
+    "@type": ["LocalBusiness", "EntertainmentBusiness"],
     "name": "DJ Domza",
     "alternateName": "DJ Domza Eventi",
     "url": siteConfig.url,
@@ -122,17 +137,20 @@ export default function RootLayout({
       "addressLocality": "Zagreb",
       "addressCountry": "HR"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Hrvatska"
-    },
+    "areaServed": [
+      "Grad Zagreb",
+      "Zagrebačka županija",
+      "Karlovačka županija",
+      "Krapinsko-zagorska županija",
+      "Hrvatska"
+    ],
     "sameAs": [
       siteConfig.links.instagram,
       siteConfig.links.facebook,
       siteConfig.links.youtube,
       siteConfig.links.soundcloud
     ],
-    "priceRange": "$$",
+    "priceRange": "€€",
     "knowsAbout": ["DJ", "Wedding DJ", "Corporate Events", "Party DJ", "Music Entertainment"],
     "makesOffer": [
       {
@@ -165,17 +183,23 @@ export default function RootLayout({
   return (
     <html lang="hr" className="dark" suppressHydrationWarning>
       <head>
+        {/* Consent default MUST be the first script, before GTM */}
+        <script dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      )}
       <body 
         className={`${plusJakartaSans.variable} min-h-screen`}
         suppressHydrationWarning
       >
         <div className="relative flex min-h-screen flex-col">
           <HashScroll />
+          <AttributionCapture />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
@@ -184,6 +208,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <CookieBanner />
+        <MobileCtaBar />
       </body>
     </html>
   );

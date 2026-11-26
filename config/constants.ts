@@ -5,7 +5,6 @@ export const siteConfig = {
   description:
     "DJ za nezaboravne zabave - vjenčanja, rođendani, korporativni eventi i klubovi",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://djdomza-eventi.hr",
-  ogImage: "/og-image.jpg",
   links: {
     instagram: "https://www.instagram.com/djdomzaeventi?igsh=dWo2OHFvbGRvMXpj",
     facebook: "https://facebook.com/djdomza",
@@ -18,8 +17,16 @@ export const siteConfig = {
   },
 };
 
-/** LocalStorage key for cookie notice – used by CookieBanner and referenced on /kolacici */
-export const COOKIE_CONSENT_KEY = "djdomza-cookie-notice-seen";
+/** Saved cookie consent decision (Consent Mode v2) – used by lib/consent.ts, the layout head script and /kolacici */
+export const CONSENT_STORAGE_KEY = "djdomza-consent-v1";
+
+/** Phone number in international format without "+" or spaces, e.g. 385994242425 */
+export const whatsappNumber = siteConfig.contact.phone.replace(/\s/g, "").replace("+", "");
+
+/** WhatsApp deep link with a prefilled message – used in footer and mobile CTA bar */
+export const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  "Pozdrav! Zanima me ponuda za DJ usluge."
+)}`;
 
 export const navLinks = [
   { href: "/", label: "Početna" },
@@ -52,8 +59,8 @@ export const galleryImages = [
   {
     src: "/gallery/dj-domza-pioneer.jpg",
     alt: "DJ Domza za Pioneer DJ opremom",
-    width: 1536,
-    height: 2048,
+    width: 1200,
+    height: 1600,
   },
   {
     src: "/gallery/dj-domza-nastup.jpg",
@@ -97,6 +104,7 @@ export const services = [
 export const testimonials: Testimonial[] = [
   {
     id: 1,
+    category: "korporativni",
     name: "Marina Mihoković Dvorski",
     role: "Direktorica",
     location: "Veliko polje",
@@ -107,6 +115,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 2,
+    category: "korporativni",
     name: "Sandra & Borna",
     role: "Božićni domjenak",
     location: "Rakitje",
@@ -117,6 +126,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 3,
+    category: "djevojacka-momacka",
     name: "Iva Mrakužić",
     role: "Djevojačka večer",
     location: "Villa Nikšić, Otočac",
@@ -127,6 +137,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 4,
+    category: "vjencanje",
     name: "Lina & Bruno",
     role: "Vjenčanje",
     location: "Clubhouse golf restoran",
@@ -137,6 +148,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 5,
+    category: "djevojacka-momacka",
     name: "Barbara Štrucelj",
     role: "Djevojačka večer",
     location: "Country House, Duga Resa",
@@ -147,6 +159,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 6,
+    category: "rodendan",
     name: "Viktorija Vancas",
     role: "Rođendan",
     content:
@@ -155,6 +168,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 7,
+    category: "djevojacka-momacka",
     name: "Martina Marić",
     role: "Djevojačka večer",
     content:

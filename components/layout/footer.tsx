@@ -3,11 +3,8 @@ import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { HashLink } from "@/components/shared/hash-link";
 import { Logo } from "@/components/shared/logo";
 import { WhatsAppIcon } from "@/components/shared/whatsapp-icon";
-import { siteConfig, navLinks } from "@/config/constants";
-
-const whatsappNumber = siteConfig.contact.phone.replace(/\s/g, "").replace("+", "");
-const whatsappMessage = encodeURIComponent("Pozdrav! Zanima me ponuda za DJ usluge.");
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+import { CookieSettingsButton } from "@/components/shared/cookie-settings-button";
+import { siteConfig, navLinks, whatsappUrl } from "@/config/constants";
 
 const socialLinks = [
   { href: siteConfig.links.instagram, icon: Instagram, label: "Instagram" },
@@ -18,7 +15,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0C0F15] border-t">
+    <footer className="bg-[#0C0F15] border-t pb-20 md:pb-0">
       <div className="content-width py-16 md:py-20">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-center md:text-left">
           {/* Brand */}
@@ -122,6 +119,11 @@ export function Footer() {
                 >
                   Kolačići
                 </Link>
+              </li>
+              <li>
+                <CookieSettingsButton className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors">
+                  Postavke kolačića
+                </CookieSettingsButton>
               </li>
             </ul>
           </div>
