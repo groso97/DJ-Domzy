@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Politika privatnosti DJ Domza web stranice",
 };
 
-const lastUpdated = "30. siječnja 2026.";
+const lastUpdated = "26. studenog 2026.";
 
 const companyRows = [
   { label: "Pravno ime:", value: "DJ Domza eventi, obrt za usluge, vl. Domagoj Jakopović" },
@@ -20,6 +20,7 @@ const companyRows = [
 
 export default function PrivacyPage() {
   return (
+    // TODO(vlasnik): pravni pregled prije objave (nacrt teksta za Google Analytics / Google Ads / izvor upita)
     <LegalPageLayout
       title="Politika privatnosti"
       breadcrumbLabel="Politika privatnosti"
@@ -56,6 +57,19 @@ export default function PrivacyPage() {
         koje ste pregledali. Za više informacija o kolačićima pogledajte našu{" "}
         <Link href="/kolacici">Politiku kolačića</Link>.
       </p>
+      <h3>1.3 Analitika i oglašavanje (samo uz privolu)</h3>
+      <p>
+        Ako to dopustite u obavijesti o kolačićima, koristimo Google Analytics (statistika posjeta) i Google Ads
+        (mjerenje uspješnosti oglasa). Pritom se obrađuju pseudonimizirani identifikatori preglednika, podaci o
+        uređaju, pregledanim stranicama i klikovima na oglase. Ako privolu odbijete, ti se kolačići ne postavljaju;
+        Google u tom slučaju može zaprimiti samo osnovne signale bez kolačića i bez identifikacije osobe.
+      </p>
+      <h3>1.4 Izvor upita</h3>
+      <p>
+        Ako na stranicu dođete klikom na naš oglas, tehničku oznaku klika (npr. gclid) i parametre kampanje (UTM)
+        privremeno pamtimo u vašem pregledniku te ih šaljemo zajedno s kontakt formom. Tako vidimo iz koje je kampanje
+        upit stigao i možemo procijeniti isplati li se oglašavanje.
+      </p>
 
       <h2>2. Kako koristimo vaše podatke</h2>
       <p>Vaše podatke koristimo u svrhe uključujući:</p>
@@ -63,12 +77,13 @@ export default function PrivacyPage() {
         <li>Odgovaranje na vaše upite i pružanje informacija o uslugama</li>
         <li>Slanje ponuda, potvrda rezervacija i komunikaciju vezanu uz događaje</li>
         <li>Poboljšanje naše web stranice i korisničkog iskustva</li>
+        <li>Mjerenje posjeta i uspješnosti oglasa (Google Analytics, Google Ads) – samo uz vašu privolu</li>
         <li>Ispunjavanje zakonskih obveza</li>
       </ul>
 
       <h2>3. Pravna osnova za obradu (GDPR)</h2>
       <p>Obrađujemo vaše podatke na temelju:</p>
-      <p><strong>Pristanak:</strong> kada nam izričito date pristanak (npr. slanjem kontakt forme).</p>
+      <p><strong>Pristanak:</strong> kada nam izričito date pristanak (npr. slanjem kontakt forme ili odabirom kolačića za analitiku i oglašavanje u obavijesti o kolačićima). Privolu za kolačiće možete povući u bilo kojem trenutku putem poveznice „Postavke kolačića“ u podnožju stranice.</p>
       <p><strong>Izvršenje ugovora:</strong> kada je obrada potrebna za pripremu ili izvršenje ugovora o uslugama.</p>
       <p><strong>Legitimni interes:</strong> za poboljšanje usluga, sigurnost i zaštitu prava.</p>
       <p><strong>Zakonska obveza:</strong> kada to zahtijeva primjenjivi zakon.</p>
@@ -83,7 +98,7 @@ export default function PrivacyPage() {
       <p>
         Vaše osobne podatke ne prodajemo niti ih ne iznajmljujemo trećim stranama. Možemo ih
         dijeliti samo s pouzdanim pružateljima usluga (npr. hosting, email) koji nam pomažu u
-        pružanju usluge, i to uz ugovorne obveze povjerljivosti i zaštite podataka. Možemo
+        pružanju usluge, i to uz ugovorne obveze povjerljivosti i zaštite podataka. To su, među ostalima, pružatelj hostinga (Vercel), pružatelj usluge slanja emaila (Resend) te – uz vašu privolu – Google Ireland Limited (Google Analytics, Google Ads, Google Tag Manager). Možemo
         otkriti podatke ako to zakon zahtijeva ili za zaštitu naših prava.
       </p>
 
@@ -120,6 +135,15 @@ export default function PrivacyPage() {
         Vaši podaci se u pravilu obrađuju unutar EU/EEA. Ako u rijetkim slučajevima koristimo
         usluge koje uključuju prijenos izvan EU/EEA, osigurat ćemo odgovarajuće jamstvo (npr.
         odluke Komisije o primjerenosti ili standardne ugovorne klauzule).
+      </p>
+      <p>
+        Google Ireland Limited može podatke prenositi društvu Google LLC u SAD. Prijenos se temelji na odluci Europske
+        komisije o primjerenosti (EU-US Data Privacy Framework).
+      </p>
+      <p>
+        Za točnije mjerenje oglasa (poboljšane konverzije), ako ste dali privolu za oglašavanje i pošaljete kontakt formu,
+        Googleu se može poslati kriptirani (hashirani) email i telefon iz forme. Google te podatke koristi samo za
+        povezivanje upita s oglasom na koji ste kliknuli.
       </p>
 
       <h2>10. Maloljetnici</h2>

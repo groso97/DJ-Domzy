@@ -170,9 +170,12 @@ export function Header() {
                           return;
                         }
                         const hashIndex = link.href.indexOf("#");
-                        if (hashIndex !== -1 && isHomePage) {
+                        // Scroll in place when this page has the section (home, or the
+                        // #kontakt form on a landing page); otherwise navigate to home.
+                        const targetId = hashIndex !== -1 ? link.href.slice(hashIndex + 1) : "";
+                        if (targetId && document.getElementById(targetId)) {
                           e.preventDefault();
-                          const id = link.href.slice(hashIndex + 1);
+                          const id = targetId;
                           const headerOffset = 96;
                           setTimeout(() => {
                             const element = document.getElementById(id);

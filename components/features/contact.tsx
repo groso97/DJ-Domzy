@@ -15,6 +15,8 @@ import { DatePicker } from "@/components/ui/date-picker";
 import Link from "next/link";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { siteConfig } from "@/config/constants";
+import { trackEvent, normalizePhone } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Ime mora imati najmanje 2 znaka"),
@@ -22,7 +24,7 @@ const contactSchema = z.object({
   phone: z.string().optional(),
   eventType: z.string().min(1, "Odaberite vrstu događaja"),
   eventDate: z.string().optional(),
-  message: z.string().min(10, "Poruka mora imati najmanje 10 znakova"),
+  message: z.string().max(5000, "Poruka može imati najviše 5000 znakova").optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -31,6 +33,7 @@ const eventTypes = [
   { value: "vjencanje", label: "Vjenčanje" },
   { value: "rodendan", label: "Rođendan" },
   { value: "korporativni", label: "Korporativni event" },
+  { value: "djevojacka-momacka", label: "Djevojačka / momačka večer" },
   { value: "klub", label: "Klub / Festival" },
   { value: "privatna-zabava", label: "Privatna zabava" },
   { value: "ostalo", label: "Ostalo" },
@@ -42,7 +45,7 @@ const contactCards = [
   { icon: MapPin, label: "Lokacija", value: "Zagreb", href: null },
 ];
 
-export function Contact() {
+export function Contact({ defaultEventType = "" }: { defaultEventType?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -54,7 +57,7 @@ export function Contact() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      eventType: "",
+      eventType: defaultEventType,
       eventDate: "",
     },
   });
@@ -66,16 +69,29 @@ export function Contact() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, attribution: getAttribution() }),
       });
 
       const result = await response.json();
 
       if (result.success) {
+        // Conversion event – fired ONLY on a successful send.
+        // user_data (email/phone) is meant for the Google Ads conversion tag (enhanced conversions)
+        // only; in GTM it must NOT be forwarded to GA4 (PII is forbidden there).
+        trackEvent("generate_lead", {
+          form_name: "kontakt",
+          event_type: data.eventType,
+          value: 50,
+          currency: "EUR",
+          user_data: {
+            email: data.email.trim().toLowerCase(),
+            phone_number: normalizePhone(data.phone),
+          },
+        });
         toast.success("Poruka uspješno poslana!", {
           description: "Javit ću vam se u najkraćem mogućem roku.",
         });
-        reset();
+        reset({ eventType: defaultEventType, eventDate: "" });
       } else {
         toast.error("Greška pri slanju", {
           description: result.error || "Pokušajte ponovo kasnije.",
@@ -190,7 +206,7 @@ export function Contact() {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Telefon</Label>
+                  <Label htmlFor="phone">Telefon (za brži odgovor)</Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -244,7 +260,7 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Poruka *</Label>
+                <Label htmlFor="message">Poruka</Label>
                 <Textarea
                   id="message"
                   placeholder="Opišite svoj događaj, posebne želje, broj gostiju..."
@@ -256,6 +272,10 @@ export function Contact() {
                   <p className="text-sm text-destructive">{errors.message.message}</p>
                 )}
               </div>
+
+              <p className="text-sm text-center text-muted-foreground">
+                Odgovor s ponudom unutar 24 h · bez obveze
+              </p>
 
               <Button
                 type="submit"

@@ -5,7 +5,7 @@ export interface ContactFormData {
   phone?: string;
   eventType: string;
   eventDate?: string;
-  message: string;
+  message?: string;
 }
 
 export interface ContactResponse {
@@ -23,8 +23,15 @@ export interface Service {
 }
 
 // Testimonial Types
+export type ServiceCategory =
+  | "vjencanje"
+  | "korporativni"
+  | "rodendan"
+  | "djevojacka-momacka";
+
 export interface Testimonial {
   id: number;
+  category: ServiceCategory;
   name: string;
   role: string;
   location?: string;
@@ -39,12 +46,28 @@ export interface NavLink {
   label: string;
 }
 
+// Landing page Types
+export interface LandingPageData {
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
+  intro: string;
+  benefitsTitle: string;
+  benefits: string[];
+  steps: { title: string; description: string }[];
+  faq: { question: string; answer: string }[];
+  testimonialCategory: ServiceCategory;
+  defaultEventType: ServiceCategory;
+  /** Subset of galleryImages (matched by `src`) shown on the page */
+  gallerySrcs: string[];
+}
+
 // Site Config Types
 export interface SiteConfig {
   name: string;
   description: string;
   url: string;
-  ogImage: string;
   links: {
     instagram: string;
     facebook: string;
